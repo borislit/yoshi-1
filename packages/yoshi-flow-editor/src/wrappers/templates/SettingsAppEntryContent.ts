@@ -3,6 +3,7 @@ import {
   TranslationsConfig,
   DefaultTranslations,
   BiConfig,
+  ExperimentsConfig,
 } from 'yoshi-flow-editor-runtime/build/constants';
 import t from './template';
 
@@ -12,6 +13,7 @@ type Opts = Record<
 > & {
   translationsConfig: TranslationsConfig | null;
   defaultTranslations: DefaultTranslations | null;
+  experimentsConfig: ExperimentsConfig | null;
   sentry: SentryConfig | null;
   biConfig: BiConfig | null;
 };
@@ -33,6 +35,12 @@ export default t<Opts>`
   var biConfig = ${({ biConfig }) =>
     biConfig ? JSON.stringify(biConfig) : 'null'};
 
+  var experimentsConfig = ${({ experimentsConfig }) =>
+    experimentsConfig ? JSON.stringify(experimentsConfig) : 'null'};
+
+  var biLogger = ${({ biConfig }) =>
+    biConfig && biConfig.owner ? `require(${biConfig.owner})` : 'null'};
+
   var sentry = ${({ sentry }) =>
     sentry
       ? `{
@@ -43,5 +51,5 @@ export default t<Opts>`
     }`
       : 'null'};
 
-  ReactDOM.render(React.createElement(SettingsWrapper(Settings, sentry, translationsConfig), null), document.getElementById('root'));
+  ReactDOM.render(React.createElement(SettingsWrapper(Settings, { sentry, translationsConfig, experimentsConfig, defaultTranslations, biConfig, biLogger }), null), document.getElementById('root'));
 `;

@@ -25,6 +25,7 @@ const settingsWrapper = (
           settingsWrapperPath,
           baseUIPath,
           biConfig: model.biConfig,
+          experimentsConfig: model.experimentsConfig,
           translationsConfig: model.translationsConfig,
           defaultTranslations: getDefaultTranslations(model),
           sentry: model.sentry,
