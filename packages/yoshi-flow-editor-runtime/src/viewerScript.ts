@@ -216,7 +216,7 @@ export const createControllers = (
   experimentsConfig: ExperimentsConfig | null = null,
   defaultTranslations: DefaultTranslations | null = null,
   biConfig: BiConfig,
-  biLogger: VisitorBILogger,
+  biLogger: typeof VisitorBILogger,
 ) => {
   return createControllersWithDescriptors([
     {

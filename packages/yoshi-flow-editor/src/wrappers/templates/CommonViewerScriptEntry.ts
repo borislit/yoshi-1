@@ -125,8 +125,10 @@ export default t<Opts>`
   var translationsConfig = ${({ translationsConfig }) =>
     translationsConfig ? JSON.stringify(translationsConfig) : 'null'};
 
-  var biLogger = ${({ visitorBiLoggerPath }) =>
-    visitorBiLoggerPath ? `require('${visitorBiLoggerPath}')` : 'null'};
+  ${({ visitorBiLoggerPath }) =>
+    visitorBiLoggerPath
+      ? `import biLogger from '${visitorBiLoggerPath}'`
+      : 'var biLogger = null'};
 
   export const initAppForPage = initAppForPageWrapper(importedApp.initAppForPage, sentryConfig, experimentsConfig, false, ${({
     appName,

@@ -9,7 +9,7 @@ export class BILogger extends React.Component<IBILogger> {
   render() {
     return (
       <BILoggerContext.Consumer>
-        {bi => this.props.children(bi)}
+        {(bi) => this.props.children(bi)}
       </BILoggerContext.Consumer>
     );
   }

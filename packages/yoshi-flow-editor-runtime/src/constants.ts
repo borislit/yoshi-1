@@ -37,4 +37,7 @@ export type BiConfig = {
   visitor?: string;
 };
 
-export const biLoggerTypesFilename = path.resolve('./bi-logger-types');
+export const biLoggerTypesFilename = path.resolve(
+  __dirname,
+  './bi-logger-types.ts',
+);

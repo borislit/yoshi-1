@@ -36,7 +36,7 @@ interface IEditorAppCreatorProps {
   experimentsConfig: ExperimentsConfig | null;
   defaultTranslations: DefaultTranslations | null;
   biConfig: BiConfig;
-  biLogger: VisitorBILogger;
+  biLogger: typeof VisitorBILogger;
 }
 interface IEditorAppWithWixSDKCreatorProps extends IEditorAppCreatorProps {
   sdk: IWixSDKContext;

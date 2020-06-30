@@ -4,5 +4,5 @@
 
 type UnspecifiedLogger = (factory: any) => (opts?: any) => any;
 
-export type OwnerBILogger = UnspecifiedLogger;
-export type VisitorBILogger = UnspecifiedLogger;
+export const OwnerBILogger: UnspecifiedLogger = () => () => null;
+export const VisitorBILogger: UnspecifiedLogger = () => () => null;

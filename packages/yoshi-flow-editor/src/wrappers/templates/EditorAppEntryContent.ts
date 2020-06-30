@@ -63,8 +63,12 @@ export default t<Opts>`
     var biConfig = ${({ biConfig }) =>
       biConfig ? JSON.stringify(biConfig) : 'null'};
 
-    var biLogger = ${({ visitorBiLoggerPath }) =>
-      visitorBiLoggerPath ? `require('${visitorBiLoggerPath}')` : 'null'};
+    ${({ visitorBiLoggerPath }) =>
+      visitorBiLoggerPath
+        ? `import biLogger from '${visitorBiLoggerPath}'`
+        : 'var biLogger = null'};
+
+    
 
     var WrappedEditorApp = () => React.createElement(EditorAppWrapper, {
       UserComponent: UserComponent,

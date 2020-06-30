@@ -54,7 +54,7 @@ export class ControllerFlowAPI extends FlowAPI {
   fedopsLogger: BaseLogger<string>;
   inEditor: boolean;
   widgetId: string;
-  biLogger: ReturnType<ReturnType<VisitorBILogger>>;
+  biLogger?: ReturnType<ReturnType<typeof VisitorBILogger>>;
   translationsConfig: TranslationsConfig | null;
 
   _translationsPromise: Promise<Record<string, string>>;
@@ -75,7 +75,7 @@ export class ControllerFlowAPI extends FlowAPI {
     appDefinitionId: string;
     biConfig: BiConfig | null;
     appName: string | null;
-    biLogger: VisitorBILogger | null;
+    biLogger: typeof VisitorBILogger | null;
     translationsConfig: TranslationsConfig | null;
     widgetId: string | null;
     defaultTranslations?: DefaultTranslations | null;

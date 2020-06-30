@@ -31,8 +31,8 @@ declare global {
   }
 }
 
-const getBiLoggerInstance = async (
-  biSchema: OwnerBILogger,
+const getBiLoggerInstance = (
+  biSchema: typeof OwnerBILogger,
   Wix: IWixStatic,
 ) => {
   const factory = iframeAppBiLoggerFactory(Wix);
@@ -53,7 +53,7 @@ const SettingsWrapper = (
     translationsConfig: TranslationsConfig | null;
     defaultTranslations: DefaultTranslations | null;
     experimentsConfig: ExperimentsConfig | null;
-    biLogger: OwnerBILogger;
+    biLogger: typeof OwnerBILogger;
   },
 ) => (props: SettingsWrapperProps) => {
   const { editorSDKSrc } = getEditorParams();
