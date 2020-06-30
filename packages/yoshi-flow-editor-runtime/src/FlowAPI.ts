@@ -17,12 +17,12 @@ import {
   TranslationsConfig,
   DefaultTranslations,
   BiConfig,
-  VisitorBiLogger,
 } from './constants';
 import { getSiteLanguage, isSSR, isMobile } from './helpers';
 import { ReportError } from './types';
 import { buildSentryOptions, getArtifact } from './utils';
 import { getSiteTranslations } from './i18next';
+import { VisitorBILogger } from './bi-logger-types';
 
 class FlowAPI {
   getExperiments: () => Promise<Experiments>;
@@ -54,7 +54,7 @@ export class ControllerFlowAPI extends FlowAPI {
   fedopsLogger: BaseLogger<string>;
   inEditor: boolean;
   widgetId: string;
-  biLogger: VisitorBiLogger;
+  biLogger: ReturnType<ReturnType<VisitorBILogger>>;
   translationsConfig: TranslationsConfig | null;
 
   _translationsPromise: Promise<Record<string, string>>;
@@ -75,7 +75,7 @@ export class ControllerFlowAPI extends FlowAPI {
     appDefinitionId: string;
     biConfig: BiConfig | null;
     appName: string | null;
-    biLogger: VisitorBiLogger | null;
+    biLogger: VisitorBILogger | null;
     translationsConfig: TranslationsConfig | null;
     widgetId: string | null;
     defaultTranslations?: DefaultTranslations | null;

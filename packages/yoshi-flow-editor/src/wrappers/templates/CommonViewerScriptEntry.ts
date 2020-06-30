@@ -24,6 +24,7 @@ type Opts = {
   defaultTranslations: DefaultTranslations | null;
   experimentsConfig: ExperimentsConfig | null;
   biConfig: BiConfig | null;
+  visitorBiLoggerPath: string | null;
   appName: string | null;
   controllersMeta: Array<TemplateControllerConfig>;
 };
@@ -68,7 +69,6 @@ const controllerConfigs = t<{
   defaultTranslations: DefaultTranslations | null;
   experimentsConfig: ExperimentsConfig | null;
   biConfig: BiConfig | null;
-  biLogger: any;
   appName: string | null;
 }>`${({
   controllersMeta,
@@ -125,6 +125,9 @@ export default t<Opts>`
   var translationsConfig = ${({ translationsConfig }) =>
     translationsConfig ? JSON.stringify(translationsConfig) : 'null'};
 
+  var biLogger = ${({ visitorBiLoggerPath }) =>
+    visitorBiLoggerPath ? `require('${visitorBiLoggerPath}')` : 'null'};
+
   export const initAppForPage = initAppForPageWrapper(importedApp.initAppForPage, sentryConfig, experimentsConfig, false, ${({
     appName,
   }) => (appName ? `"${appName}"` : 'null')}, translationsConfig);
@@ -140,8 +143,6 @@ export default t<Opts>`
       controllersMeta,
       appName,
       biConfig,
-      biLogger:
-        biConfig && biConfig.visitor ? `require(${biConfig.visitor})` : 'null',
       translationsConfig,
       defaultTranslations,
       experimentsConfig,

@@ -1,7 +1,9 @@
 import React, { Suspense } from 'react';
 import { I18nextProvider } from 'react-i18next';
 import { ExperimentsProvider } from '@wix/wix-experiments-react';
+import { iframeAppBiLoggerFactory } from '@wix/iframe-app-bi-logger';
 import SentryGlobal from '@sentry/browser';
+import { IWixStatic } from '@wix/native-components-infra/dist/src/types/wix-sdk';
 import { PublicDataProvider } from './react/PublicData/PublicDataProvider';
 import { ErrorBoundary } from './react/ErrorBoundary';
 import { getEditorParams } from './utils';
@@ -16,6 +18,8 @@ import {
   ExperimentsConfig,
   DefaultTranslations,
 } from './constants';
+import { BILoggerProvider } from './react/BILogger/BILoggerProvider';
+import { OwnerBILogger } from './bi-logger-types';
 
 interface SettingsWrapperProps {
   __publicData__: Record<string, any>;
@@ -27,6 +31,15 @@ declare global {
   }
 }
 
+const getBiLoggerInstance = async (
+  biSchema: OwnerBILogger,
+  Wix: IWixStatic,
+) => {
+  const factory = iframeAppBiLoggerFactory(Wix);
+  const logger = biSchema(factory)();
+  return logger;
+};
+
 const SettingsWrapper = (
   UserComponent: typeof React.Component,
   {
@@ -34,11 +47,13 @@ const SettingsWrapper = (
     translationsConfig,
     defaultTranslations,
     experimentsConfig,
+    biLogger,
   }: {
     sentry: SentryConfig | null;
     translationsConfig: TranslationsConfig | null;
     defaultTranslations: DefaultTranslations | null;
     experimentsConfig: ExperimentsConfig | null;
+    biLogger: OwnerBILogger;
   },
 ) => (props: SettingsWrapperProps) => {
   const { editorSDKSrc } = getEditorParams();
@@ -84,6 +99,19 @@ const SettingsWrapper = (
         </ExperimentsProvider>
       ) : (
         // TODO: Handle translations provider for app builder components
+        children
+      );
+    });
+  }
+
+  if (biLogger) {
+    availableProviders.push((children, additionalProps) => {
+      const { Wix } = additionalProps.sdk as IWixSDKContext;
+      return Wix ? (
+        <BILoggerProvider logger={getBiLoggerInstance(biLogger, Wix)}>
+          {children}
+        </BILoggerProvider>
+      ) : (
         children
       );
     });

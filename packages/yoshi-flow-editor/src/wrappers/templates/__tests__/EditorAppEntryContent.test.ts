@@ -9,6 +9,7 @@ describe('EditorAppEntry template', () => {
       defaultTranslations: { a: 'b' },
       componentFileName: 'some/components/MyWidget.tsx',
       controllerFileName: 'some/components/controller.ts',
+      visitorBiLoggerPath: 'a/b/c',
       biConfig: {
         visitor: 'visitor-bi-package',
         owner: 'owner-bi-package',
@@ -33,6 +34,7 @@ describe('EditorAppEntry template', () => {
       defaultTranslations: { a: 'b' },
       componentFileName: 'some/components/MyWidget.tsx',
       controllerFileName: 'some/components/controller.ts',
+      visitorBiLoggerPath: null,
       biConfig: {
         visitor: 'visitor-bi-package',
         owner: 'owner-bi-package',

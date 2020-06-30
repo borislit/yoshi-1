@@ -14,10 +14,10 @@ import {
   TranslationsConfig,
   DefaultTranslations,
   BiConfig,
-  VisitorBiLogger,
 } from './constants';
 import { InitAppForPageFn, CreateControllerFn } from './types';
 import { ViewerScriptFlowAPI, ControllerFlowAPI } from './FlowAPI';
+import { VisitorBILogger } from './bi-logger-types';
 
 let viewerScriptFlowAPI: ViewerScriptFlowAPI;
 let appData: any = {};
@@ -216,7 +216,7 @@ export const createControllers = (
   experimentsConfig: ExperimentsConfig | null = null,
   defaultTranslations: DefaultTranslations | null = null,
   biConfig: BiConfig,
-  biLogger: VisitorBiLogger,
+  biLogger: VisitorBILogger,
 ) => {
   return createControllersWithDescriptors([
     {

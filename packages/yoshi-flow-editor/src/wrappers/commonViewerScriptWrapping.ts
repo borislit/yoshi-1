@@ -1,5 +1,6 @@
 import path from 'path';
 import fs from 'fs-extra';
+import resolveCwd from 'resolve-cwd';
 import { FlowEditorModel, ComponentModel } from '../model';
 import { getDefaultTranslations } from '../utils';
 import viewerScriptEntry, {
@@ -38,6 +39,18 @@ const viewerScriptWrapper = (
     'viewerScript.js',
   );
 
+  let visitorBiLoggerPath = null;
+
+  if (model.biConfig?.visitor) {
+    visitorBiLoggerPath = resolveCwd.silent(model.biConfig.visitor);
+    if (!visitorBiLoggerPath) {
+      throw new Error(
+        `❌ Seems like you have \`bi.visitor\` specified, but didn't install it as a dependency.
+Please add it your your project: \`npm install ${model.biConfig.visitor}\` or remove bi field from \`.application.json\``,
+      );
+    }
+  }
+
   const generateControllerEntryContent = viewerScriptEntry({
     viewerScriptWrapperPath,
     sentryConfig: model.sentry,
@@ -45,6 +58,7 @@ const viewerScriptWrapper = (
     appName: model.appName,
     experimentsConfig: model.experimentsConfig,
     defaultTranslations: getDefaultTranslations(model),
+    visitorBiLoggerPath,
     biConfig: model.biConfig,
     translationsConfig: model.translationsConfig,
     viewerEntryFileName: model.viewerEntryFileName,

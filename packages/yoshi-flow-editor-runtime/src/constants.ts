@@ -1,3 +1,5 @@
+import path from 'path';
+
 export const DEFAULT_WIX_SDK_SRC =
   'https://static.parastorage.com/services/js-sdk/1.469.0/js/wix-private.min.js';
 
@@ -35,4 +37,4 @@ export type BiConfig = {
   visitor?: string;
 };
 
-export type VisitorBiLogger = any;
+export const biLoggerTypesFilename = path.resolve('./bi-logger-types');

@@ -12,6 +12,7 @@ describe('CommonViewerScriptEntry template', () => {
       sentryConfig: null,
       defaultTranslations: {},
       biConfig: {},
+      visitorBiLoggerPath: 'a/b/c',
       translationsConfig: null,
       appName: 'someapp',
       controllersMeta: [
@@ -38,6 +39,7 @@ describe('CommonViewerScriptEntry template', () => {
         'yoshi-flow-editor-runtime/build/viewerScript.js',
       sentryConfig: null,
       appName: 'someApp',
+      visitorBiLoggerPath: 'a/b/c',
       defaultTranslations: null,
       biConfig: {},
       translationsConfig: {
@@ -66,6 +68,7 @@ describe('CommonViewerScriptEntry template', () => {
         'yoshi-flow-editor-runtime/build/viewerScript.js',
       sentryConfig: null,
       appName: 'someapp',
+      visitorBiLoggerPath: 'a/b/c',
       defaultTranslations: { a: 'b' },
       biConfig: {
         visitor: 'visitor-bi-package',
@@ -106,6 +109,7 @@ describe('CommonViewerScriptEntry template', () => {
       sentryConfig: null,
       appName: 'someapp',
       defaultTranslations: { a: 'b' },
+      visitorBiLoggerPath: null,
       biConfig: {
         visitor: 'visitor-bi-package',
         owner: 'owner-bi-package',
@@ -143,6 +147,7 @@ describe('CommonViewerScriptEntry template', () => {
       viewerScriptWrapperPath:
         'yoshi-flow-editor-runtime/build/viewerScript.js',
       sentryConfig: null,
+      visitorBiLoggerPath: 'a/b/c',
       biConfig: {
         visitor: 'visitor-bi-package',
         owner: 'owner-bi-package',
@@ -172,6 +177,7 @@ describe('CommonViewerScriptEntry template', () => {
         visitor: 'visitor-bi-package',
         owner: 'owner-bi-package',
       },
+      visitorBiLoggerPath: null,
       viewerScriptWrapperPath:
         'yoshi-flow-editor-runtime/build/viewerScript.js',
       sentryConfig: {

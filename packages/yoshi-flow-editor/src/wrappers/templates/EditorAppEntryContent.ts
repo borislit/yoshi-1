@@ -18,6 +18,7 @@ type Opts = Record<
   viewerEntryFileName: string | null;
   translationsConfig: TranslationsConfig | null;
   defaultTranslations: DefaultTranslations | null;
+  visitorBiLoggerPath: string | null;
   biConfig: BiConfig | null;
   sentryConfig: SentryConfig | null;
   experimentsConfig: ExperimentsConfig | null;
@@ -62,6 +63,9 @@ export default t<Opts>`
     var biConfig = ${({ biConfig }) =>
       biConfig ? JSON.stringify(biConfig) : 'null'};
 
+    var biLogger = ${({ visitorBiLoggerPath }) =>
+      visitorBiLoggerPath ? `require('${visitorBiLoggerPath}')` : 'null'};
+
     var WrappedEditorApp = () => React.createElement(EditorAppWrapper, {
       UserComponent: UserComponent,
       name: componentName,
@@ -70,6 +74,7 @@ export default t<Opts>`
       translationsConfig: translationsConfig,
       defaultTranslations: defaultTranslations,
       biConfig: biConfig,
+      biLogger: biLogger,
       userController: createController,
       customInitAppForPage: importedApp.initAppForPage
     });

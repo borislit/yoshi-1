@@ -14,6 +14,7 @@ type Opts = Record<
   translationsConfig: TranslationsConfig | null;
   defaultTranslations: DefaultTranslations | null;
   experimentsConfig: ExperimentsConfig | null;
+  ownerBiLoggerPath: string | null;
   sentry: SentryConfig | null;
   biConfig: BiConfig | null;
 };
@@ -38,8 +39,10 @@ export default t<Opts>`
   var experimentsConfig = ${({ experimentsConfig }) =>
     experimentsConfig ? JSON.stringify(experimentsConfig) : 'null'};
 
-  var biLogger = ${({ biConfig }) =>
-    biConfig && biConfig.owner ? `require(${biConfig.owner})` : 'null'};
+  ${({ ownerBiLoggerPath }) =>
+    ownerBiLoggerPath
+      ? `import biLogger from '${ownerBiLoggerPath}'`
+      : 'var biLogger = null'};
 
   var sentry = ${({ sentry }) =>
     sentry
