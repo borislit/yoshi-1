@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { OwnerLogger, VisitorLogger } from '../../bi-logger-types';
+import { OwnerLogger, VisitorLogger } from '../../generated/bi-logger-types';
 
 export type IBILoggerContext = OwnerLogger | VisitorLogger;
 

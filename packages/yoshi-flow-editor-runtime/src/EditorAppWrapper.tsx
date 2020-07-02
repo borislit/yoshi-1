@@ -18,7 +18,7 @@ import {
   BiConfig,
 } from './constants';
 import { InitAppForPageFn, CreateControllerFn } from './types';
-import { VisitorBILoggerFactory } from './bi-logger-types';
+import { VisitorBILoggerFactory } from './generated/bi-logger-types';
 
 declare global {
   interface Window {

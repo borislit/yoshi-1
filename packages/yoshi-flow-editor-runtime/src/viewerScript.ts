@@ -17,7 +17,7 @@ import {
 } from './constants';
 import { InitAppForPageFn, CreateControllerFn } from './types';
 import { ViewerScriptFlowAPI, ControllerFlowAPI } from './FlowAPI';
-import { VisitorBILoggerFactory } from './bi-logger-types';
+import { VisitorBILoggerFactory } from './generated/bi-logger-types';
 import { serializeBILogger } from './utils';
 
 let viewerScriptFlowAPI: ViewerScriptFlowAPI;

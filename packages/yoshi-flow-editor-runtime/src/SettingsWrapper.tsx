@@ -20,7 +20,7 @@ import {
   DefaultTranslations,
 } from './constants';
 import { BILoggerProvider } from './react/BILogger/BILoggerProvider';
-import { OwnerBILoggerFactory } from './bi-logger-types';
+import { OwnerBILoggerFactory } from './generated/bi-logger-types';
 
 interface SettingsWrapperProps {
   __publicData__: Record<string, any>;

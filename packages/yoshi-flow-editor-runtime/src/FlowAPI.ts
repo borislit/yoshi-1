@@ -22,7 +22,10 @@ import { getSiteLanguage, isSSR, isMobile } from './helpers';
 import { ReportError } from './types';
 import { buildSentryOptions, getArtifact } from './utils';
 import { getSiteTranslations } from './i18next';
-import { VisitorBILoggerFactory, VisitorLogger } from './bi-logger-types';
+import {
+  VisitorBILoggerFactory,
+  VisitorLogger,
+} from './generated/bi-logger-types';
 
 class FlowAPI {
   getExperiments: () => Promise<Experiments>;
