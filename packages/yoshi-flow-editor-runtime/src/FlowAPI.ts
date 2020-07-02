@@ -118,9 +118,7 @@ export class ControllerFlowAPI extends FlowAPI {
         _msid: platformBI.metaSiteId,
       };
       this.biLogger = biLogger(biFactory)({});
-      if (this.biLogger) {
-        this.biLogger.util.updateDefaults(biOptions);
-      }
+      this.biLogger.util.updateDefaults(biOptions);
     }
 
     this.appLoadStarted();
