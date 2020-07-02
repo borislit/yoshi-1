@@ -37,6 +37,7 @@ const componentWrapper = (
 
       const generateWidgetEntryContent = editorEntryTemplate({
         editorAppWrapperPath,
+        projectName: model.projectName,
         componentName: component.name,
         defaultTranslations: getDefaultTranslations(model),
         biConfig: model.biConfig,

@@ -69,6 +69,7 @@ export class ControllerFlowAPI extends FlowAPI {
     biConfig,
     translationsConfig,
     appName,
+    projectName,
     biLogger,
     widgetId,
     defaultTranslations = null,
@@ -76,6 +77,7 @@ export class ControllerFlowAPI extends FlowAPI {
     viewerScriptFlowAPI: ViewerScriptFlowAPI;
     controllerConfig: IWidgetControllerConfig;
     appDefinitionId: string;
+    projectName: string;
     biConfig: BiConfig | null;
     appName: string | null;
     biLogger: VisitorBILoggerFactory | null;
@@ -115,6 +117,7 @@ export class ControllerFlowAPI extends FlowAPI {
         visitor_id: platformBI.visitorId,
         token: platformBI.biToken,
         appName,
+        projectName,
         _msid: platformBI.metaSiteId,
       };
       this.biLogger = biLogger(biFactory)({});

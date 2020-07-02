@@ -56,6 +56,7 @@ Please add it your your project: \`npm install ${model.biConfig.visitor}\` or re
     sentryConfig: model.sentry,
     controllersMeta,
     appName: model.appName,
+    projectName: model.projectName,
     experimentsConfig: model.experimentsConfig,
     defaultTranslations: getDefaultTranslations(model),
     visitorBiLoggerPath,

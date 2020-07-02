@@ -38,6 +38,8 @@ Please add it your your project: \`npm install ${model.biConfig.owner}\` or remo
           settingsWrapperPath,
           baseUIPath,
           biConfig: model.biConfig,
+          appName: model.appName,
+          projectName: model.projectName,
           ownerBiLoggerPath,
           experimentsConfig: model.experimentsConfig,
           translationsConfig: model.translationsConfig,

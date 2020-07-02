@@ -37,6 +37,7 @@ type ControllerDescriptor = {
   experimentsConfig: ExperimentsConfig | null;
   translationsConfig: TranslationsConfig | null;
   defaultTranslations: DefaultTranslations | null;
+  projectName: string;
   biLogger: any;
   widgetType: WidgetType;
   biConfig: BiConfig;
@@ -60,6 +61,7 @@ const defaultControllerWrapper = (
     appDefinitionId: controllerConfig.appParams.appDefinitionId,
     biLogger: controllerDescriptor.biLogger,
     appName: controllerDescriptor.appName,
+    projectName: controllerDescriptor.projectName,
     widgetId: controllerDescriptor.id,
     biConfig: controllerDescriptor.biConfig,
     translationsConfig: controllerDescriptor.translationsConfig,
@@ -107,6 +109,7 @@ function ooiControllerWrapper(
   const { appDefinitionId } = appParams;
   const flowAPI = new ControllerFlowAPI({
     viewerScriptFlowAPI,
+    projectName: controllerDescriptor.projectName,
     appDefinitionId,
     defaultTranslations: controllerDescriptor.defaultTranslations,
     appName: controllerDescriptor.appName,
@@ -218,10 +221,12 @@ export const createControllers = (
   defaultTranslations: DefaultTranslations | null = null,
   biConfig: BiConfig,
   biLogger: VisitorBILoggerFactory,
+  projectName: string,
 ) => {
   return createControllersWithDescriptors([
     {
       method: createController,
+      projectName,
       id: null,
       biConfig,
       translationsConfig,

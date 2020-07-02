@@ -33,12 +33,18 @@ declare global {
 }
 
 const getBiLoggerInstance = memoize(
-  (biSchema: OwnerBILoggerFactory, Wix: IWixStatic) => {
+  (
+    biSchema: OwnerBILoggerFactory,
+    Wix: IWixStatic,
+    appName: string | null,
+    projectName: string,
+  ) => {
     const factory = iframeAppBiLoggerFactory(Wix);
     const logger = biSchema(factory)();
     const biOptions = {
       owner_id: Wix.Utils.getSiteOwnerId(),
-      appName: 'SETTINGS PANEL APP',
+      appName,
+      projectName,
     };
     logger.util.updateDefaults(biOptions);
     return logger;
@@ -52,12 +58,16 @@ const SettingsWrapper = (
     translationsConfig,
     defaultTranslations,
     experimentsConfig,
+    appName,
+    projectName,
     biLogger,
   }: {
     sentry: SentryConfig | null;
+    appName: string | null;
     translationsConfig: TranslationsConfig | null;
     defaultTranslations: DefaultTranslations | null;
     experimentsConfig: ExperimentsConfig | null;
+    projectName: string;
     biLogger: OwnerBILoggerFactory;
   },
 ) => (props: SettingsWrapperProps) => {
@@ -114,7 +124,9 @@ const SettingsWrapper = (
     availableProviders.push((children, additionalProps) => {
       const { Wix } = additionalProps.sdk as IWixSDKContext;
       return Wix ? (
-        <BILoggerProvider logger={getBiLoggerInstance(biLogger, Wix)}>
+        <BILoggerProvider
+          logger={getBiLoggerInstance(biLogger, Wix, appName, projectName)}
+        >
           {children}
         </BILoggerProvider>
       ) : (

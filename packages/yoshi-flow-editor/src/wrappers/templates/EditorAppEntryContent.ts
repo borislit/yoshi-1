@@ -12,6 +12,7 @@ type Opts = Record<
   | 'editorAppWrapperPath'
   | 'componentFileName'
   | 'controllerFileName'
+  | 'projectName'
   | 'componentName',
   string
 > & {
@@ -37,6 +38,7 @@ export default t<Opts>`
       viewerScriptOptionalImport({ viewerEntryFileName })}
 
     var componentName = '${({ componentName }) => componentName}';
+    var projectName = '${({ projectName }) => projectName}';
     var sentryConfig = ${({ sentryConfig }) =>
       sentryConfig
         ? `{
@@ -77,6 +79,7 @@ export default t<Opts>`
       experimentsConfig: experimentsConfig,
       translationsConfig: translationsConfig,
       defaultTranslations: defaultTranslations,
+      projectName: projectName,
       biConfig: biConfig,
       biLogger: biLogger,
       userController: createController,

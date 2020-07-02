@@ -13,8 +13,10 @@ type Opts = Record<
 > & {
   translationsConfig: TranslationsConfig | null;
   defaultTranslations: DefaultTranslations | null;
+  projectName: string;
   experimentsConfig: ExperimentsConfig | null;
   ownerBiLoggerPath: string | null;
+  appName: string | null;
   sentry: SentryConfig | null;
   biConfig: BiConfig | null;
 };
@@ -39,6 +41,9 @@ export default t<Opts>`
   var experimentsConfig = ${({ experimentsConfig }) =>
     experimentsConfig ? JSON.stringify(experimentsConfig) : 'null'};
 
+  var projectName = '${({ projectName }) => projectName}';
+  var appName = '${({ appName }) => appName || 'null'}';
+
   ${({ ownerBiLoggerPath }) =>
     ownerBiLoggerPath
       ? `import biLogger from '${ownerBiLoggerPath}'`
@@ -54,5 +59,5 @@ export default t<Opts>`
     }`
       : 'null'};
 
-  ReactDOM.render(React.createElement(SettingsWrapper(Settings, { sentry, translationsConfig, experimentsConfig, defaultTranslations, biConfig, biLogger }), null), document.getElementById('root'));
+  ReactDOM.render(React.createElement(SettingsWrapper(Settings, { sentry, translationsConfig, experimentsConfig, defaultTranslations, biConfig, biLogger, projectName, appName }), null), document.getElementById('root'));
 `;

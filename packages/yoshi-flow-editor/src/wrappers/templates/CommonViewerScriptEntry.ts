@@ -26,6 +26,7 @@ type Opts = {
   biConfig: BiConfig | null;
   visitorBiLoggerPath: string | null;
   appName: string | null;
+  projectName: string;
   controllersMeta: Array<TemplateControllerConfig>;
 };
 
@@ -70,6 +71,7 @@ const controllerConfigs = t<{
   experimentsConfig: ExperimentsConfig | null;
   biConfig: BiConfig | null;
   appName: string | null;
+  projectName: string;
 }>`${({
   controllersMeta,
   translationsConfig,
@@ -77,6 +79,7 @@ const controllerConfigs = t<{
   biConfig,
   defaultTranslations,
   appName,
+  projectName,
 }) =>
   controllersMeta
     .map(
@@ -96,6 +99,7 @@ const controllerConfigs = t<{
           biConfig: ${biConfig ? JSON.stringify(biConfig) : 'null'},
           controllerFileName: "${controller.controllerFileName}",
           appName: ${appName ? `"${appName}"` : 'null'},
+          projectName: "${projectName}",
           componentName: "${controller.componentName}",
           id: ${getControllerScriptId(controller)} }`,
     )
@@ -138,12 +142,14 @@ export default t<Opts>`
     appName,
     translationsConfig,
     defaultTranslations,
+    projectName,
     biConfig,
     experimentsConfig,
   }) =>
     controllerConfigs({
       controllersMeta,
       appName,
+      projectName,
       biConfig,
       translationsConfig,
       defaultTranslations,

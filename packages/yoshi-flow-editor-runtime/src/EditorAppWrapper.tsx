@@ -36,6 +36,7 @@ interface IEditorAppCreatorProps {
   experimentsConfig: ExperimentsConfig | null;
   defaultTranslations: DefaultTranslations | null;
   biConfig: BiConfig;
+  projectName: string;
   biLogger: VisitorBILoggerFactory;
 }
 interface IEditorAppWithWixSDKCreatorProps extends IEditorAppCreatorProps {
@@ -56,6 +57,7 @@ const createEditorAppForWixSDK = ({
   experimentsConfig,
   translationsConfig,
   defaultTranslations,
+  projectName,
   biConfig,
   biLogger,
   sdk,
@@ -76,6 +78,7 @@ const createEditorAppForWixSDK = ({
         defaultTranslations,
         biConfig,
         biLogger,
+        projectName,
       ),
       initAppForPage: initAppForPageWrapper(
         customInitAppForPage,
