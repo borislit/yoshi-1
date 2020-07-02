@@ -17,7 +17,7 @@ exports[`CommonViewerScriptEntry template generates correct template w/o control
 
   var translationsConfig = {\\"default\\":\\"en\\"};
 
-  var _biLogger = require('a/b/c');
+  import biLogger from 'a/b/c';
 
   export const initAppForPage = initAppForPageWrapper(importedApp.initAppForPage, sentryConfig, experimentsConfig, false, \\"someApp\\", translationsConfig);
   export const createControllers = createControllersWithDescriptors([]);
@@ -41,7 +41,7 @@ exports[`CommonViewerScriptEntry template generates correct template with a sing
 
   var translationsConfig = null;
 
-  var _biLogger = require('a/b/c');
+  import biLogger from 'a/b/c';
 
   export const initAppForPage = initAppForPageWrapper(importedApp.initAppForPage, sentryConfig, experimentsConfig, false, \\"someapp\\", translationsConfig);
   export const createControllers = createControllersWithDescriptors([{ method: controller0,
@@ -49,7 +49,7 @@ exports[`CommonViewerScriptEntry template generates correct template with a sing
           translationsConfig: null,
           experimentsConfig: {\\"scope\\":\\"test-scope\\"},
           defaultTranslations: {},
-          biLogger: _biLogger,
+          biLogger: biLogger,
           biConfig: {},
           controllerFileName: \\"project/src/components/button/controller.ts\\",
           appName: \\"someapp\\",
@@ -74,7 +74,7 @@ exports[`CommonViewerScriptEntry template generates correct template with a sing
 
   var translationsConfig = {\\"default\\":\\"en\\"};
 
-  var _biLogger = require('a/b/c');
+  import biLogger from 'a/b/c';
 
   export const initAppForPage = initAppForPageWrapper(importedApp.initAppForPage, sentryConfig, experimentsConfig, false, \\"someApp\\", translationsConfig);
   export const createControllers = createControllersWithDescriptors([{ method: controller0,
@@ -82,7 +82,7 @@ exports[`CommonViewerScriptEntry template generates correct template with a sing
           translationsConfig: {\\"default\\":\\"en\\"},
           experimentsConfig: {\\"scope\\":\\"test-scope\\"},
           defaultTranslations: null,
-          biLogger: _biLogger,
+          biLogger: biLogger,
           biConfig: {},
           controllerFileName: \\"project/src/components/button/controller.ts\\",
           appName: \\"someApp\\",
@@ -109,7 +109,7 @@ import controller1 from 'project/src/components/todo/controller.ts';
 
   var translationsConfig = {\\"default\\":\\"en\\"};
 
-  var _biLogger = null;
+  var biLogger = null;
 
   export const initAppForPage = initAppForPageWrapper(importedApp.initAppForPage, sentryConfig, experimentsConfig, false, \\"someapp\\", translationsConfig);
   export const createControllers = createControllersWithDescriptors([{ method: controller0,
@@ -117,7 +117,7 @@ import controller1 from 'project/src/components/todo/controller.ts';
           translationsConfig: {\\"default\\":\\"en\\"},
           experimentsConfig: {\\"scope\\":\\"test-scope\\"},
           defaultTranslations: {\\"a\\":\\"b\\"},
-          biLogger: _biLogger,
+          biLogger: biLogger,
           biConfig: {\\"visitor\\":\\"visitor-bi-package\\",\\"owner\\":\\"owner-bi-package\\"},
           controllerFileName: \\"project/src/components/todo/controller.ts\\",
           appName: \\"someapp\\",
@@ -127,7 +127,7 @@ import controller1 from 'project/src/components/todo/controller.ts';
           translationsConfig: {\\"default\\":\\"en\\"},
           experimentsConfig: {\\"scope\\":\\"test-scope\\"},
           defaultTranslations: {\\"a\\":\\"b\\"},
-          biLogger: _biLogger,
+          biLogger: biLogger,
           biConfig: {\\"visitor\\":\\"visitor-bi-package\\",\\"owner\\":\\"owner-bi-package\\"},
           controllerFileName: \\"project/src/components/todo/controller.ts\\",
           appName: \\"someapp\\",
@@ -154,7 +154,7 @@ import controller1 from 'project/src/components/todo/controller.ts';
 
   var translationsConfig = {\\"default\\":\\"en\\"};
 
-  var _biLogger = require('a/b/c');
+  import biLogger from 'a/b/c';
 
   export const initAppForPage = initAppForPageWrapper(importedApp.initAppForPage, sentryConfig, experimentsConfig, false, \\"someapp\\", translationsConfig);
   export const createControllers = createControllersWithDescriptors([{ method: controller0,
@@ -162,7 +162,7 @@ import controller1 from 'project/src/components/todo/controller.ts';
           translationsConfig: {\\"default\\":\\"en\\"},
           experimentsConfig: {\\"scope\\":\\"test-scope\\"},
           defaultTranslations: {\\"a\\":\\"b\\"},
-          biLogger: _biLogger,
+          biLogger: biLogger,
           biConfig: {\\"visitor\\":\\"visitor-bi-package\\",\\"owner\\":\\"owner-bi-package\\"},
           controllerFileName: \\"project/src/components/todo/controller.ts\\",
           appName: \\"someapp\\",
@@ -172,7 +172,7 @@ import controller1 from 'project/src/components/todo/controller.ts';
           translationsConfig: {\\"default\\":\\"en\\"},
           experimentsConfig: {\\"scope\\":\\"test-scope\\"},
           defaultTranslations: {\\"a\\":\\"b\\"},
-          biLogger: _biLogger,
+          biLogger: biLogger,
           biConfig: {\\"visitor\\":\\"visitor-bi-package\\",\\"owner\\":\\"owner-bi-package\\"},
           controllerFileName: \\"project/src/components/todo/controller.ts\\",
           appName: \\"someapp\\",
@@ -203,7 +203,7 @@ exports[`CommonViewerScriptEntry template generates correct template with sentry
 
   var translationsConfig = {\\"default\\":\\"en\\"};
 
-  var _biLogger = null;
+  var biLogger = null;
 
   export const initAppForPage = initAppForPageWrapper(importedApp.initAppForPage, sentryConfig, experimentsConfig, false, \\"someApp\\", translationsConfig);
   export const createControllers = createControllersWithDescriptors([{ method: controller0,
@@ -211,7 +211,7 @@ exports[`CommonViewerScriptEntry template generates correct template with sentry
           translationsConfig: {\\"default\\":\\"en\\"},
           experimentsConfig: {\\"scope\\":\\"test-scope\\"},
           defaultTranslations: {\\"a\\":\\"b\\"},
-          biLogger: _biLogger,
+          biLogger: biLogger,
           biConfig: {\\"visitor\\":\\"visitor-bi-package\\",\\"owner\\":\\"owner-bi-package\\"},
           controllerFileName: \\"project/src/components/button/controller.ts\\",
           appName: \\"someApp\\",

@@ -29,6 +29,10 @@ exports[`EditorAppEntry template generates correct template for editor app entry
 
     var biConfig = {\\"visitor\\":\\"visitor-bi-package\\",\\"owner\\":\\"owner-bi-package\\"};
 
+    import biLogger from 'a/b/c';
+
+    
+
     var WrappedEditorApp = () => React.createElement(EditorAppWrapper, {
       UserComponent: UserComponent,
       name: componentName,
@@ -37,6 +41,7 @@ exports[`EditorAppEntry template generates correct template for editor app entry
       translationsConfig: translationsConfig,
       defaultTranslations: defaultTranslations,
       biConfig: biConfig,
+      biLogger: biLogger,
       userController: createController,
       customInitAppForPage: importedApp.initAppForPage
     });
@@ -68,6 +73,10 @@ exports[`EditorAppEntry template generates correct template for editor app entry
 
     var biConfig = {\\"visitor\\":\\"visitor-bi-package\\",\\"owner\\":\\"owner-bi-package\\"};
 
+    var biLogger = null;
+
+    
+
     var WrappedEditorApp = () => React.createElement(EditorAppWrapper, {
       UserComponent: UserComponent,
       name: componentName,
@@ -76,6 +85,7 @@ exports[`EditorAppEntry template generates correct template for editor app entry
       translationsConfig: translationsConfig,
       defaultTranslations: defaultTranslations,
       biConfig: biConfig,
+      biLogger: biLogger,
       userController: createController,
       customInitAppForPage: importedApp.initAppForPage
     });
