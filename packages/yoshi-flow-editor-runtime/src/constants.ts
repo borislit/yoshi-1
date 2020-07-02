@@ -39,5 +39,5 @@ export type BiConfig = {
 
 export const biLoggerTypesFilename = path.resolve(
   __dirname,
-  './generated/bi-logger-types.ts',
+  './generated/bi-logger-types.d.ts',
 );
