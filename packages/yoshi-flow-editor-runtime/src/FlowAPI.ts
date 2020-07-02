@@ -22,7 +22,7 @@ import { getSiteLanguage, isSSR, isMobile } from './helpers';
 import { ReportError } from './types';
 import { buildSentryOptions, getArtifact } from './utils';
 import { getSiteTranslations } from './i18next';
-import { VisitorBILogger } from './bi-logger-types';
+import { VisitorBILoggerFactory, VisitorLogger } from './bi-logger-types';
 
 class FlowAPI {
   getExperiments: () => Promise<Experiments>;
@@ -54,7 +54,7 @@ export class ControllerFlowAPI extends FlowAPI {
   fedopsLogger: BaseLogger<string>;
   inEditor: boolean;
   widgetId: string;
-  biLogger?: ReturnType<ReturnType<typeof VisitorBILogger>>;
+  biLogger?: VisitorLogger | null;
   translationsConfig: TranslationsConfig | null;
 
   _translationsPromise: Promise<Record<string, string>>;
@@ -75,7 +75,7 @@ export class ControllerFlowAPI extends FlowAPI {
     appDefinitionId: string;
     biConfig: BiConfig | null;
     appName: string | null;
-    biLogger: typeof VisitorBILogger | null;
+    biLogger: VisitorBILoggerFactory | null;
     translationsConfig: TranslationsConfig | null;
     widgetId: string | null;
     defaultTranslations?: DefaultTranslations | null;
@@ -115,7 +115,9 @@ export class ControllerFlowAPI extends FlowAPI {
         _msid: platformBI.metaSiteId,
       };
       this.biLogger = biLogger(biFactory)({});
-      this.biLogger.util.updateDefaults(biOptions);
+      if (this.biLogger) {
+        this.biLogger.util.updateDefaults(biOptions);
+      }
     }
 
     this.appLoadStarted();

@@ -89,3 +89,48 @@ export const buildSentryOptions = (
 export const getArtifact = () => {
   return (window as any).__CI_APP_VERSION__;
 };
+
+const METHOD_PREFIX = '__BI_METHOD__';
+const UTIL_PREFIX = '__BI_UTIL__';
+
+export const serializeBILogger = (logger: any) => {
+  const total: Record<string, any> = {};
+  for (const key in logger) {
+    if (typeof logger[key] === 'function') {
+      total[`${METHOD_PREFIX}${key}`] = logger[key].bind(logger);
+    } else if (key === 'util') {
+      if (typeof logger.util.updateDefaults === 'function') {
+        total[`${UTIL_PREFIX}updateDefaults`] = logger.util.updateDefaults.bind(
+          logger,
+        );
+      } else if (typeof logger.util.log === 'function') {
+        total[`${UTIL_PREFIX}log`] = logger.util.log.bind(logger);
+      }
+    }
+  }
+  return total;
+};
+
+export const ejectBIEventsFromProps = (props: Record<string, any>) => {
+  return Object.keys(props).reduce<{
+    userProps: Record<string, any>;
+    biEvents: any;
+  }>(
+    (total, key) => {
+      if (key.includes(METHOD_PREFIX)) {
+        const methodName = key.replace(METHOD_PREFIX, '');
+        total.biEvents[methodName] = props[key];
+      } else if (key.includes(UTIL_PREFIX)) {
+        const utilName = key.replace(UTIL_PREFIX, '');
+        if (!total.biEvents.util) {
+          total.biEvents.util = {};
+        }
+        total.biEvents.util[utilName] = props[key];
+      } else {
+        total.userProps[key] = props[key];
+      }
+      return total;
+    },
+    { userProps: {}, biEvents: {} },
+  );
+};

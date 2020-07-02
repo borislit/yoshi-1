@@ -17,8 +17,13 @@ import { PublicDataProvider } from './react/PublicData/PublicDataProvider';
 import { ControllerProvider } from './react/Controller/ControllerProvider';
 import { IControllerContext } from './react/Controller/ControllerContext';
 import { SentryConfig } from './constants';
-import { buildSentryOptions, getArtifact } from './utils';
+import {
+  buildSentryOptions,
+  getArtifact,
+  ejectBIEventsFromProps,
+} from './utils';
 import { WithProviders, ProvidersList } from './react/utils';
+import { BILoggerProvider } from './react/BILogger/BILoggerProvider';
 // import { BILoggerProvider } from './react/BILogger/BILoggerProvider';
 
 declare global {
@@ -88,6 +93,8 @@ const getWidgetWrapper = (
       ...widgetProps
     } = props;
 
+    const { userProps, biEvents } = ejectBIEventsFromProps(widgetProps);
+
     const availableProviders: ProvidersList = [
       (children) => (
         <TPAComponentsProvider value={{ mobile: _mobile }}>
@@ -112,13 +119,11 @@ const getWidgetWrapper = (
       ));
     }
 
-    // if (_enabledHOCs.bi) {
-    //   availableProviders.push((children) => (
-    //     <BILoggerProvider logger={}>
-    //       {children}
-    //     </ExperimentsProvider>
-    //   ));
-    // }
+    if (_enabledHOCs.bi) {
+      availableProviders.push((children) => (
+        <BILoggerProvider logger={biEvents}>{children}</BILoggerProvider>
+      ));
+    }
 
     if (_enabledHOCs.translations) {
       availableProviders.push((children) => (
@@ -142,7 +147,7 @@ const getWidgetWrapper = (
 
     return (
       <WithProviders providers={availableProviders}>
-        <UserComponent {...widgetProps} />
+        <UserComponent {...userProps} />
       </WithProviders>
     );
   };

@@ -18,7 +18,7 @@ import {
   BiConfig,
 } from './constants';
 import { InitAppForPageFn, CreateControllerFn } from './types';
-import { VisitorBILogger } from './bi-logger-types';
+import { VisitorBILoggerFactory } from './bi-logger-types';
 
 declare global {
   interface Window {
@@ -36,7 +36,7 @@ interface IEditorAppCreatorProps {
   experimentsConfig: ExperimentsConfig | null;
   defaultTranslations: DefaultTranslations | null;
   biConfig: BiConfig;
-  biLogger: typeof VisitorBILogger;
+  biLogger: VisitorBILoggerFactory;
 }
 interface IEditorAppWithWixSDKCreatorProps extends IEditorAppCreatorProps {
   sdk: IWixSDKContext;

@@ -4,6 +4,7 @@ import { ExperimentsProvider } from '@wix/wix-experiments-react';
 import { iframeAppBiLoggerFactory } from '@wix/iframe-app-bi-logger';
 import SentryGlobal from '@sentry/browser';
 import { IWixStatic } from '@wix/native-components-infra/dist/src/types/wix-sdk';
+import memoize from 'lodash/memoize';
 import { PublicDataProvider } from './react/PublicData/PublicDataProvider';
 import { ErrorBoundary } from './react/ErrorBoundary';
 import { getEditorParams } from './utils';
@@ -19,7 +20,7 @@ import {
   DefaultTranslations,
 } from './constants';
 import { BILoggerProvider } from './react/BILogger/BILoggerProvider';
-import { OwnerBILogger } from './bi-logger-types';
+import { OwnerBILoggerFactory } from './bi-logger-types';
 
 interface SettingsWrapperProps {
   __publicData__: Record<string, any>;
@@ -31,14 +32,18 @@ declare global {
   }
 }
 
-const getBiLoggerInstance = (
-  biSchema: typeof OwnerBILogger,
-  Wix: IWixStatic,
-) => {
-  const factory = iframeAppBiLoggerFactory(Wix);
-  const logger = biSchema(factory)();
-  return logger;
-};
+const getBiLoggerInstance = memoize(
+  (biSchema: OwnerBILoggerFactory, Wix: IWixStatic) => {
+    const factory = iframeAppBiLoggerFactory(Wix);
+    const logger = biSchema(factory)();
+    const biOptions = {
+      owner_id: Wix.Utils.getSiteOwnerId(),
+      appName: 'SETTINGS PANEL APP',
+    };
+    logger.util.updateDefaults(biOptions);
+    return logger;
+  },
+);
 
 const SettingsWrapper = (
   UserComponent: typeof React.Component,
@@ -53,7 +58,7 @@ const SettingsWrapper = (
     translationsConfig: TranslationsConfig | null;
     defaultTranslations: DefaultTranslations | null;
     experimentsConfig: ExperimentsConfig | null;
-    biLogger: typeof OwnerBILogger;
+    biLogger: OwnerBILoggerFactory;
   },
 ) => (props: SettingsWrapperProps) => {
   const { editorSDKSrc } = getEditorParams();
@@ -71,6 +76,7 @@ const SettingsWrapper = (
   if (translationsConfig) {
     availableProviders.push((children, additionalProps) => {
       const { Wix } = additionalProps.sdk as IWixSDKContext;
+
       return Wix ? (
         <I18nextProvider
           i18n={i18n({

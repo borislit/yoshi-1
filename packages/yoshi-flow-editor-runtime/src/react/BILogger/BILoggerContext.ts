@@ -1,9 +1,12 @@
 import { createContext } from 'react';
-import { OwnerBILogger, VisitorBILogger } from '../../bi-logger-types';
+import { OwnerLogger, VisitorLogger } from '../../bi-logger-types';
 
-export type IBILoggerContext =
-  | ReturnType<ReturnType<typeof OwnerBILogger>>
-  | ReturnType<ReturnType<typeof VisitorBILogger>>;
+export type IBILoggerContext = OwnerLogger | VisitorLogger;
+
+export type IOwnerBILoggerContext = OwnerLogger;
+
+export type IVisitorBILoggerContext = VisitorLogger;
+
 export const BILoggerContext: React.Context<IBILoggerContext> = createContext<
   IBILoggerContext
->({} as IBILoggerContext);
+>({} as any);

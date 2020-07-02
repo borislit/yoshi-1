@@ -2,6 +2,7 @@
   "name": "yoshi-flow-editor-runtime",
   "version": "4.110.1",
   "main": "build/index.js",
+  "types": "build/index.ts",
   "sideEffects": false,
   "keywords": [
     "yoshi",

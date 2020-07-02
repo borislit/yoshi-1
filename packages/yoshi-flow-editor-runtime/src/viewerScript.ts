@@ -17,7 +17,8 @@ import {
 } from './constants';
 import { InitAppForPageFn, CreateControllerFn } from './types';
 import { ViewerScriptFlowAPI, ControllerFlowAPI } from './FlowAPI';
-import { VisitorBILogger } from './bi-logger-types';
+import { VisitorBILoggerFactory } from './bi-logger-types';
+import { serializeBILogger } from './utils';
 
 let viewerScriptFlowAPI: ViewerScriptFlowAPI;
 let appData: any = {};
@@ -142,13 +143,13 @@ function ooiControllerWrapper(
     return {
       ...userController,
       pageReady: async (...args: Array<any>) => {
-        // we are going to get rid of current setProps call and override original one with wrapper, where we can populate user's call with flow's fields.
+        // In future we are going to get rid of current setProps call and override original one with wrapper, where we can populate user's call with flow's fields.
         setProps({
           __publicData__: controllerConfig.config.publicData,
           _language: flowAPI.getSiteLanguage(),
           _translations: translations,
           _experiments: experiments.all(),
-          // _biLogger: flowAPI.biLogger,
+          ...serializeBILogger(flowAPI.biLogger),
           _mobile: flowAPI.isMobile(),
           _enabledHOCs: {
             experiments: !!controllerDescriptor.experimentsConfig,
@@ -216,7 +217,7 @@ export const createControllers = (
   experimentsConfig: ExperimentsConfig | null = null,
   defaultTranslations: DefaultTranslations | null = null,
   biConfig: BiConfig,
-  biLogger: typeof VisitorBILogger,
+  biLogger: VisitorBILoggerFactory,
 ) => {
   return createControllersWithDescriptors([
     {
