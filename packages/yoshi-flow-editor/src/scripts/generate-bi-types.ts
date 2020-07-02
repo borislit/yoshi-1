@@ -6,6 +6,6 @@ import { overrideBILoggerTypes } from '../wrappers/biLoggerTypes';
 
 const appConfig = importCwd.silent('.application.json') as AppConfig;
 
-if (appConfig.bi) {
+if (appConfig && appConfig.bi) {
   overrideBILoggerTypes(appConfig.bi);
 }

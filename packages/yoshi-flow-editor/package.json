@@ -7,7 +7,7 @@
     "yoshi-flow-editor": "./bin/yoshi-flow-editor.js"
   },
   "scripts": {
-    "postinstall": "./build/scripts/generate-bi-types",
+    "postinstall": "node ./build/scripts/generate-bi-types",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
