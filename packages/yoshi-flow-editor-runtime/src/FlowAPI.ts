@@ -16,7 +16,7 @@ import {
   SentryConfig,
   TranslationsConfig,
   DefaultTranslations,
-  BiConfig,
+  BIConfig,
 } from './constants';
 import { getSiteLanguage, isSSR, isMobile } from './helpers';
 import { ReportError } from './types';
@@ -163,7 +163,7 @@ export class ViewerScriptFlowAPI extends FlowAPI {
     experimentsConfig: ExperimentsConfig | null;
     platformServices: IPlatformServices;
     sentry: SentryConfig | null;
-    biConfig: BiConfig | null;
+    biConfig: BIConfig | null;
     biLogger: VisitorBILoggerFactory | null;
     inEditor: boolean;
     projectName: string;

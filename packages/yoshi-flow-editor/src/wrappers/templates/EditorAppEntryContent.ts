@@ -3,7 +3,7 @@ import {
   ExperimentsConfig,
   DefaultTranslations,
   TranslationsConfig,
-  BiConfig,
+  BIConfig,
 } from 'yoshi-flow-editor-runtime/build/constants';
 import t from './template';
 import { viewerScriptOptionalImport } from './CommonViewerScriptEntry';
@@ -20,7 +20,7 @@ type Opts = Record<
   translationsConfig: TranslationsConfig | null;
   defaultTranslations: DefaultTranslations | null;
   visitorBiLoggerPath: string | null;
-  biConfig: BiConfig | null;
+  biConfig: BIConfig | null;
   sentryConfig: SentryConfig | null;
   experimentsConfig: ExperimentsConfig | null;
 };

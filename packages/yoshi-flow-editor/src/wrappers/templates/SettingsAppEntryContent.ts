@@ -2,7 +2,7 @@ import {
   SentryConfig,
   TranslationsConfig,
   DefaultTranslations,
-  BiConfig,
+  BIConfig,
   ExperimentsConfig,
 } from 'yoshi-flow-editor-runtime/build/constants';
 import t from './template';
@@ -18,7 +18,7 @@ type Opts = Record<
   ownerBiLoggerPath: string | null;
   appName: string | null;
   sentry: SentryConfig | null;
-  biConfig: BiConfig | null;
+  biConfig: BIConfig | null;
 };
 
 export default t<Opts>`

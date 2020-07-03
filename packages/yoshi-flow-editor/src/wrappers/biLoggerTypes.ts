@@ -1,5 +1,5 @@
 import fs from 'fs-extra';
-import { BiConfig } from 'yoshi-flow-editor-runtime/build/constants';
+import { BIConfig } from 'yoshi-flow-editor-runtime/build/constants';
 
 import resolveCwd from 'resolve-cwd';
 import importCwd from 'import-cwd';
@@ -21,7 +21,7 @@ const replaceTypes = (constantsPathname: string, template: string) => {
   }
 };
 
-export const overrideBILoggerTypes = (biConfig: BiConfig) => {
+export const overrideBILoggerTypes = (biConfig: BIConfig) => {
   if (biConfig?.owner || biConfig?.visitor) {
     const template = biLoggerTypesTemplate({
       visitor: biConfig.owner ? resolveCwd.silent(biConfig.owner) : null,

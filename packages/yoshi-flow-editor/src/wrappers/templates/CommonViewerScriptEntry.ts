@@ -4,7 +4,7 @@ import {
   SentryConfig,
   DefaultTranslations,
   TranslationsConfig,
-  BiConfig,
+  BIConfig,
 } from 'yoshi-flow-editor-runtime/build/constants';
 import t from './template';
 
@@ -23,7 +23,7 @@ type Opts = {
   translationsConfig: TranslationsConfig | null;
   defaultTranslations: DefaultTranslations | null;
   experimentsConfig: ExperimentsConfig | null;
-  biConfig: BiConfig | null;
+  biConfig: BIConfig | null;
   visitorBiLoggerPath: string | null;
   appName: string | null;
   projectName: string;
@@ -69,7 +69,7 @@ const controllerConfigs = t<{
   translationsConfig: TranslationsConfig | null;
   defaultTranslations: DefaultTranslations | null;
   experimentsConfig: ExperimentsConfig | null;
-  biConfig: BiConfig | null;
+  biConfig: BIConfig | null;
   appName: string | null;
   projectName: string;
 }>`${({

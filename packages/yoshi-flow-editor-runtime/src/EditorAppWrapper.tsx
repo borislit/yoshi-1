@@ -15,7 +15,7 @@ import {
   ExperimentsConfig,
   TranslationsConfig,
   DefaultTranslations,
-  BiConfig,
+  BIConfig,
 } from './constants';
 import { InitAppForPageFn, CreateControllerFn } from './types';
 import { VisitorBILoggerFactory } from './generated/bi-logger-types';
@@ -35,7 +35,7 @@ interface IEditorAppCreatorProps {
   sentry: SentryConfig | null;
   experimentsConfig: ExperimentsConfig | null;
   defaultTranslations: DefaultTranslations | null;
-  biConfig: BiConfig;
+  biConfig: BIConfig;
   projectName: string;
   biLogger: VisitorBILoggerFactory;
 }

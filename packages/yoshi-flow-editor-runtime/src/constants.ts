@@ -32,7 +32,7 @@ export type TranslationsConfig = {
 
 export type DefaultTranslations = Record<string, string> | null;
 
-export type BiConfig = {
+export type BIConfig = {
   owner?: string;
   visitor?: string;
 };

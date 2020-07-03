@@ -13,7 +13,7 @@ import {
   ExperimentsConfig,
   TranslationsConfig,
   DefaultTranslations,
-  BiConfig,
+  BIConfig,
 } from './constants';
 import { InitAppForPageFn, CreateControllerFn } from './types';
 import { ViewerScriptFlowAPI, ControllerFlowAPI } from './FlowAPI';
@@ -40,7 +40,7 @@ type ControllerDescriptor = {
   projectName: string;
   biLogger: VisitorBILoggerFactory;
   widgetType: WidgetType;
-  biConfig: BiConfig;
+  biConfig: BIConfig;
   controllerFileName: string | null;
   appName: string | null;
   componentName: string | null;
@@ -211,7 +211,7 @@ export const createControllers = (
   translationsConfig: TranslationsConfig | null = null,
   experimentsConfig: ExperimentsConfig | null = null,
   defaultTranslations: DefaultTranslations | null = null,
-  biConfig: BiConfig,
+  biConfig: BIConfig,
   biLogger: VisitorBILoggerFactory,
   projectName: string,
 ) => {
@@ -262,7 +262,7 @@ interface InitAppForPageWrapperOptions {
   sentryConfig: SentryConfig | null;
   experimentsConfig: ExperimentsConfig | null;
   inEditor: boolean;
-  biConfig: BiConfig;
+  biConfig: BIConfig;
   biLogger: VisitorBILoggerFactory;
   appName: string | null;
   projectName: string;
