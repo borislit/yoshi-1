@@ -43,55 +43,86 @@ export default () => (
 ```
 
 ## `BILogger`
+It is a consumer. It will render a `children` function with `biLogger` passed to provider.
 
-Currently it consists of `BILoggerProvider` and `BILogger` components.
+You can configure 2 different kinds of BI logger according to user's roles which events you want to log: owner and visitor.
 
-`BILoggerProvider` should be rendered in the root of you component and receive a `biLogger` prop.
+For both loggers you'll have the same `BILogger` HOCs, the only difference - it will pass a logger according to relevant environment.
 
-`BILogger` is a consumer. It will render a `children` function with `biLogger` passed to provider.
+- **Owner** will be available in `Settings` panel.
+- **Visitor** will be available in `Widget` and `controller`.
 
-You still need to create and configure `biLogger` instance, so it's just an attempt to remove some boilerplate from your side.
-
-To configure biLogger instance, you have to follow [fed-handbook BI section steps](https://github.com/wix-private/fed-handbook/blob/master/BI.md#overview).
-
-By loading schema logger you've initialized and registered, you should use different loggers according to runtime environment:
-
-- Settings panel: `iframeAppBiLoggerFactory` imported from `@wix/iframe-app-bi-logger` package
-- Widget: `@wix/web-bi-logger` package
+After you generate a project, a demo bi logger (`bi-logger-editor-flow-template`) will be added to `.application.json` configuration.
+It's just for show case and it should be finally repaced with your one.  
+To configure own biLogger, please read the [fed-handbook BI section](https://github.com/wix-private/fed-handbook/blob/master/BI.md#overview).
 
 _Settings.ts_
 
 ```tsx
-import { WixSDK, BILogger, BILoggerProvider } from "yoshi-flow-editor-runtime";
-import { iframeAppBiLoggerFactory } from "@wix/iframe-app-bi-logger";
-import initSchemaLogger from "your-schema-logger-package";
+import { WixSDK, BILogger } from "yoshi-flow-editor-runtime";
 
-const biLogger = initSchemaLogger(iframeAppBiLoggerFactory);
 
-// Root component
-export default () => (
-  <BILoggerProvider logger={biLogger}>
-    // Settings content...
-    <ColorPicker />
-  </BILoggerProvider>
-);
-
-// Somewhere deeper in the component
+**Settings.tsx**
+```tsx
+// Somewhere deep in the component
 const ColorPicker = () => (
-  <BiLogger>
+  <BILogger owner>
     {biLogger => (
       <ColorPickerColorSpace
-        onChange={() => {
-          logger.logColorChange();
+        onChange={(color) => {
+          logger.logColorChange({ color });
         }}
       />
     )}
-  </BiLogger>
+  </BILogger>
 );
 ```
 
+**controller.ts**
+```tsx
+const createController = async ({ flowAPI, controllerConfig }) => {
+  const { setProps } = controllerConfig;
+
+  onSomeAction = async () => {
+    // Do something...
+    await flowAPI.biLogger?.somethigWasDone({});
+  };
+
+  return {
+    async pageReady() {
+      setProps({
+        onSomeAction,
+      });
+      await flowAPI.biLogger?.templateWidgetLoaded({});
+    },
+  }
+}
 ```
+
+### `BILoggerDefaults`
+To update defaults for each events being called from the `BILogger` render prop, you can update the context by wrapping your root component, 
+which contain consumers.
+
+```Settings.tsx
+import { BILogger, BILoggerDefaults } from 'yoshi-flow-editor-runtime'
+
+<BILoggerDefaults defaults={{ someData: 'hey' }}>
+  <div>
+  // Somwhere deeper...
+  <BILogger owner>
+    {biLogger => (
+      <ColorPickerColorSpace
+        onChange={() => {
+          logger.logColorChange({ color }); // Event will include `someData` field.
+        }}
+      />
+    )}
+  </BILogger>
+  </div>
+</BILoggerDefaults>
 ```
+
+> To update defaults in controller, you can just call `flowAPI.biLogger.util.updateDefaults({})`.
 
 ## `translate`
 It's a HOC from `react-i18next` that allows using translations for `Widget` and `Settings` components.
