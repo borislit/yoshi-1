@@ -19,7 +19,15 @@ exports[`CommonViewerScriptEntry template generates correct template w/o control
 
   import biLogger from 'a/b/c';
 
-  export const initAppForPage = initAppForPageWrapper(importedApp.initAppForPage, sentryConfig, experimentsConfig, false, \\"someApp\\", translationsConfig);
+  export const initAppForPage = initAppForPageWrapper({
+    initAppForPage: importedApp.initAppForPage,
+    sentry: sentryConfig,
+    experimentsConfig: experimentsConfig,
+    inEditor: false,
+    appName: \\"someApp\\",
+    translationsConfig: translationsConfig,
+  });
+
   export const createControllers = createControllersWithDescriptors([]);
 "
 `;
@@ -43,7 +51,15 @@ exports[`CommonViewerScriptEntry template generates correct template with a sing
 
   import biLogger from 'a/b/c';
 
-  export const initAppForPage = initAppForPageWrapper(importedApp.initAppForPage, sentryConfig, experimentsConfig, false, \\"someapp\\", translationsConfig);
+  export const initAppForPage = initAppForPageWrapper({
+    initAppForPage: importedApp.initAppForPage,
+    sentry: sentryConfig,
+    experimentsConfig: experimentsConfig,
+    inEditor: false,
+    appName: \\"someapp\\",
+    translationsConfig: translationsConfig,
+  });
+
   export const createControllers = createControllersWithDescriptors([{ method: controller0,
           widgetType: \\"WIDGET_OUT_OF_IFRAME\\",
           translationsConfig: null,
@@ -77,7 +93,15 @@ exports[`CommonViewerScriptEntry template generates correct template with a sing
 
   import biLogger from 'a/b/c';
 
-  export const initAppForPage = initAppForPageWrapper(importedApp.initAppForPage, sentryConfig, experimentsConfig, false, \\"someApp\\", translationsConfig);
+  export const initAppForPage = initAppForPageWrapper({
+    initAppForPage: importedApp.initAppForPage,
+    sentry: sentryConfig,
+    experimentsConfig: experimentsConfig,
+    inEditor: false,
+    appName: \\"someApp\\",
+    translationsConfig: translationsConfig,
+  });
+
   export const createControllers = createControllersWithDescriptors([{ method: controller0,
           widgetType: \\"WIDGET_OUT_OF_IFRAME\\",
           translationsConfig: {\\"default\\":\\"en\\"},
@@ -113,7 +137,15 @@ import controller1 from 'project/src/components/todo/controller.ts';
 
   var biLogger = null;
 
-  export const initAppForPage = initAppForPageWrapper(importedApp.initAppForPage, sentryConfig, experimentsConfig, false, \\"someapp\\", translationsConfig);
+  export const initAppForPage = initAppForPageWrapper({
+    initAppForPage: importedApp.initAppForPage,
+    sentry: sentryConfig,
+    experimentsConfig: experimentsConfig,
+    inEditor: false,
+    appName: \\"someapp\\",
+    translationsConfig: translationsConfig,
+  });
+
   export const createControllers = createControllersWithDescriptors([{ method: controller0,
           widgetType: \\"STUDIO_WIDGET\\",
           translationsConfig: {\\"default\\":\\"en\\"},
@@ -160,7 +192,15 @@ import controller1 from 'project/src/components/todo/controller.ts';
 
   import biLogger from 'a/b/c';
 
-  export const initAppForPage = initAppForPageWrapper(importedApp.initAppForPage, sentryConfig, experimentsConfig, false, \\"someapp\\", translationsConfig);
+  export const initAppForPage = initAppForPageWrapper({
+    initAppForPage: importedApp.initAppForPage,
+    sentry: sentryConfig,
+    experimentsConfig: experimentsConfig,
+    inEditor: false,
+    appName: \\"someapp\\",
+    translationsConfig: translationsConfig,
+  });
+
   export const createControllers = createControllersWithDescriptors([{ method: controller0,
           widgetType: \\"WIDGET_OUT_OF_IFRAME\\",
           translationsConfig: {\\"default\\":\\"en\\"},
@@ -211,7 +251,15 @@ exports[`CommonViewerScriptEntry template generates correct template with sentry
 
   var biLogger = null;
 
-  export const initAppForPage = initAppForPageWrapper(importedApp.initAppForPage, sentryConfig, experimentsConfig, false, \\"someApp\\", translationsConfig);
+  export const initAppForPage = initAppForPageWrapper({
+    initAppForPage: importedApp.initAppForPage,
+    sentry: sentryConfig,
+    experimentsConfig: experimentsConfig,
+    inEditor: false,
+    appName: \\"someApp\\",
+    translationsConfig: translationsConfig,
+  });
+
   export const createControllers = createControllersWithDescriptors([{ method: controller0,
           widgetType: \\"WIDGET_OUT_OF_IFRAME\\",
           translationsConfig: {\\"default\\":\\"en\\"},

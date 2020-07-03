@@ -134,9 +134,19 @@ export default t<Opts>`
       ? `import biLogger from '${visitorBiLoggerPath}'`
       : 'var biLogger = null'};
 
-  export const initAppForPage = initAppForPageWrapper(importedApp.initAppForPage, sentryConfig, experimentsConfig, false, ${({
-    appName,
-  }) => (appName ? `"${appName}"` : 'null')}, translationsConfig);
+  export const initAppForPage = initAppForPageWrapper({
+    initAppForPage: importedApp.initAppForPage,
+    sentry: sentryConfig,
+    experimentsConfig: experimentsConfig,
+    inEditor: false,
+    biLogger: biLogger,
+    projectName: ${({ projectName }) => `"${projectName}"`},
+    biConfig: ${({ biConfig }) =>
+      biConfig ? JSON.stringify(biConfig) : 'null'},
+    appName: ${({ appName }) => (appName ? `"${appName}"` : 'null')},
+    translationsConfig: translationsConfig,
+  });
+
   export const createControllers = createControllersWithDescriptors([${({
     controllersMeta,
     appName,

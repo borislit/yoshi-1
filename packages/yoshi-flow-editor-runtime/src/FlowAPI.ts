@@ -66,21 +66,13 @@ export class ControllerFlowAPI extends FlowAPI {
     viewerScriptFlowAPI,
     controllerConfig,
     appDefinitionId,
-    biConfig,
     translationsConfig,
-    appName,
-    projectName,
-    biLogger,
     widgetId,
     defaultTranslations = null,
   }: {
     viewerScriptFlowAPI: ViewerScriptFlowAPI;
     controllerConfig: IWidgetControllerConfig;
     appDefinitionId: string;
-    projectName: string;
-    biConfig: BiConfig | null;
-    appName: string | null;
-    biLogger: VisitorBILoggerFactory | null;
     translationsConfig: TranslationsConfig | null;
     widgetId: string | null;
     defaultTranslations?: DefaultTranslations | null;
@@ -104,24 +96,8 @@ export class ControllerFlowAPI extends FlowAPI {
       );
     }
 
-    const platformBI = platformAPIs.bi;
-
-    if (
-      biConfig?.visitor &&
-      platformBI &&
-      platformAPIs.biLoggerFactory &&
-      biLogger
-    ) {
-      const biFactory = platformAPIs.biLoggerFactory();
-      const biOptions = {
-        visitor_id: platformBI.visitorId,
-        token: platformBI.biToken,
-        appName,
-        projectName,
-        _msid: platformBI.metaSiteId,
-      };
-      this.biLogger = biLogger(biFactory)({});
-      this.biLogger.util.updateDefaults(biOptions);
+    if (viewerScriptFlowAPI.biLogger) {
+      this.biLogger = viewerScriptFlowAPI.biLogger;
     }
 
     this.appLoadStarted();
@@ -167,6 +143,76 @@ export class ControllerFlowAPI extends FlowAPI {
   isMobile = () => {
     return isMobile(this.controllerConfig.wixCodeApi);
   };
+}
+
+export class ViewerScriptFlowAPI extends FlowAPI {
+  sentryMonitor?: RavenStatic;
+  inEditor: boolean;
+  biLogger?: VisitorLogger | null;
+
+  constructor({
+    experimentsConfig,
+    platformServices,
+    sentry,
+    biConfig,
+    biLogger,
+    inEditor,
+    projectName,
+    appName,
+  }: {
+    experimentsConfig: ExperimentsConfig | null;
+    platformServices: IPlatformServices;
+    sentry: SentryConfig | null;
+    biConfig: BiConfig | null;
+    biLogger: VisitorBILoggerFactory | null;
+    inEditor: boolean;
+    projectName: string;
+    appName: string | null;
+  }) {
+    super({ experimentsConfig });
+
+    this.inEditor = inEditor;
+
+    const platformBI = platformServices.bi;
+
+    if (
+      biConfig?.visitor &&
+      platformBI &&
+      platformServices.biLoggerFactory &&
+      biLogger
+    ) {
+      const biFactory = platformServices.biLoggerFactory();
+      const biOptions = {
+        visitor_id: platformBI.visitorId,
+        token: platformBI.biToken,
+        appName,
+        projectName,
+        _msid: platformBI.metaSiteId,
+      };
+      this.biLogger = biLogger(biFactory)({});
+      this.biLogger.util.updateDefaults(biOptions);
+    }
+
+    if (sentry) {
+      const sentryOptions = buildSentryOptions(
+        sentry.DSN,
+        'Viewer:Worker',
+        getArtifact(),
+      );
+
+      this.sentryMonitor = platformServices.monitoring.createMonitor(
+        sentryOptions.dsn,
+        (config) => ({
+          ...config,
+          ...sentryOptions.config,
+        }),
+      );
+
+      this.reportError = this.sentryMonitor.captureException.bind(
+        this.sentryMonitor,
+      );
+    }
+  }
 }
 
 export class EditorScriptFlowAPI extends FlowAPI {
@@ -227,45 +273,4 @@ export class EditorScriptFlowAPI extends FlowAPI {
       appLoadStarted.call(this.fedopsLogger, ...args);
     };
   };
-}
-
-export class ViewerScriptFlowAPI extends FlowAPI {
-  sentryMonitor?: RavenStatic;
-  inEditor: boolean;
-
-  constructor({
-    experimentsConfig,
-    platformServices,
-    sentry,
-    inEditor,
-  }: {
-    experimentsConfig: ExperimentsConfig | null;
-    platformServices: IPlatformServices;
-    sentry: SentryConfig | null;
-    inEditor: boolean;
-  }) {
-    super({ experimentsConfig });
-
-    this.inEditor = inEditor;
-
-    if (sentry) {
-      const sentryOptions = buildSentryOptions(
-        sentry.DSN,
-        'Viewer:Worker',
-        getArtifact(),
-      );
-
-      this.sentryMonitor = platformServices.monitoring.createMonitor(
-        sentryOptions.dsn,
-        (config) => ({
-          ...config,
-          ...sentryOptions.config,
-        }),
-      );
-
-      this.reportError = this.sentryMonitor.captureException.bind(
-        this.sentryMonitor,
-      );
-    }
-  }
 }

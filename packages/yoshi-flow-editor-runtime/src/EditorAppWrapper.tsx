@@ -80,12 +80,16 @@ const createEditorAppForWixSDK = ({
         biLogger,
         projectName,
       ),
-      initAppForPage: initAppForPageWrapper(
-        customInitAppForPage,
-        sentry,
+      initAppForPage: initAppForPageWrapper({
+        initAppForPage: customInitAppForPage,
+        sentryConfig: sentry,
         experimentsConfig,
-        true,
-      ),
+        inEditor: true,
+        projectName,
+        biLogger,
+        biConfig,
+        appName: null,
+      }),
     },
     Wix: sdk.Wix,
     widgetConfig: {

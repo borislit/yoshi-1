@@ -77,7 +77,6 @@ const build: cliCommand = async function (argv, config, model) {
   ]);
 
   await copyTemplates();
-
   if (model.biConfig) {
     overrideBILoggerTypes(model.biConfig);
   }

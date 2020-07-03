@@ -38,7 +38,7 @@ type ControllerDescriptor = {
   translationsConfig: TranslationsConfig | null;
   defaultTranslations: DefaultTranslations | null;
   projectName: string;
-  biLogger: any;
+  biLogger: VisitorBILoggerFactory;
   widgetType: WidgetType;
   biConfig: BiConfig;
   controllerFileName: string | null;
@@ -59,11 +59,7 @@ const defaultControllerWrapper = (
   const flowAPI = new ControllerFlowAPI({
     viewerScriptFlowAPI,
     appDefinitionId: controllerConfig.appParams.appDefinitionId,
-    biLogger: controllerDescriptor.biLogger,
-    appName: controllerDescriptor.appName,
-    projectName: controllerDescriptor.projectName,
     widgetId: controllerDescriptor.id,
-    biConfig: controllerDescriptor.biConfig,
     translationsConfig: controllerDescriptor.translationsConfig,
     defaultTranslations: controllerDescriptor.defaultTranslations,
     controllerConfig,
@@ -109,14 +105,10 @@ function ooiControllerWrapper(
   const { appDefinitionId } = appParams;
   const flowAPI = new ControllerFlowAPI({
     viewerScriptFlowAPI,
-    projectName: controllerDescriptor.projectName,
     appDefinitionId,
     defaultTranslations: controllerDescriptor.defaultTranslations,
-    appName: controllerDescriptor.appName,
     translationsConfig: controllerDescriptor.translationsConfig,
-    biConfig: controllerDescriptor.biConfig,
     widgetId: controllerDescriptor.id,
-    biLogger: controllerDescriptor.biLogger,
     controllerConfig,
   });
 
@@ -265,31 +257,48 @@ export const createControllersWithDescriptors = (
   return wrappedControllers;
 };
 
-export const initAppForPageWrapper = (
-  initAppForPage: InitAppForPageFn | undefined,
-  sentry: SentryConfig | null,
-  experimentsConfig: ExperimentsConfig | null,
-  inEditor: boolean = false,
-  appName: string | null = null,
-  // translationsConfig: TranslationsConfig | null = null,
-): IInitAppForPage => async (
+interface InitAppForPageWrapperOptions {
+  initAppForPage?: InitAppForPageFn;
+  sentryConfig: SentryConfig | null;
+  experimentsConfig: ExperimentsConfig | null;
+  inEditor: boolean;
+  biConfig: BiConfig;
+  biLogger: VisitorBILoggerFactory;
+  appName: string | null;
+  projectName: string;
+}
+
+export const initAppForPageWrapper = ({
+  initAppForPage,
+  sentryConfig = null,
+  experimentsConfig = null,
+  inEditor = false,
+  projectName,
+  biConfig,
+  biLogger,
+  appName = null,
+}: InitAppForPageWrapperOptions): IInitAppForPage => async (
   initParams: IAppData,
-  apis: IPlatformAPI,
+  platformAPIs: IPlatformAPI,
   namespaces: IWixAPI,
   platformServices: IPlatformServices,
 ) => {
   viewerScriptFlowAPI = new ViewerScriptFlowAPI({
     experimentsConfig,
+    projectName,
+    sentry: sentryConfig,
     platformServices,
-    sentry,
     inEditor,
+    biConfig,
+    biLogger,
+    appName,
   });
 
   if (initAppForPage) {
     try {
       appData = await initAppForPage(
         initParams,
-        apis,
+        platformAPIs,
         namespaces,
         platformServices,
         viewerScriptFlowAPI,

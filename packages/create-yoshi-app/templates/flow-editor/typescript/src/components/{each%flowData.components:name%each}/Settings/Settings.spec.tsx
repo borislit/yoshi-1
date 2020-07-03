@@ -13,6 +13,8 @@ import {
   WixSDKProvider,
   IConfigureWixSDKTestkit,
 } from 'yoshi-flow-editor-runtime/test';
+import { BILoggerProvider } from 'yoshi-flow-editor-runtime';
+import biLoggerMock from '../../../../__tests__/helpers/biLogger.mock';
 import Settings from './Settings';
 
 describe('Settings', () => {
@@ -27,13 +29,15 @@ describe('Settings', () => {
 
   it('should render tabs', async () => {
     render(
-      <ExperimentsProvider experiments={{}}>
-        <I18nextProvider>
-          <WixSDKProvider configure={configureWixStatic}>
-            <Settings />
-          </WixSDKProvider>
-        </I18nextProvider>
-      </ExperimentsProvider>,
+      <BILoggerProvider logger={biLoggerMock}>
+        <ExperimentsProvider experiments={{}}>
+          <I18nextProvider>
+            <WixSDKProvider configure={configureWixStatic}>
+              <Settings />
+            </WixSDKProvider>
+          </I18nextProvider>
+        </ExperimentsProvider>
+      </BILoggerProvider>,
     );
 
     await waitForElement(() => screen.getByTestId('settings-tabs'));
@@ -43,13 +47,15 @@ describe('Settings', () => {
 
   it('should go to the design tab', async () => {
     render(
-      <ExperimentsProvider experiments={{}}>
-        <I18nextProvider>
-          <WixSDKProvider configure={configureWixStatic}>
-            <Settings />
-          </WixSDKProvider>
-        </I18nextProvider>
-      </ExperimentsProvider>,
+      <BILoggerProvider logger={biLoggerMock}>
+        <ExperimentsProvider experiments={{}}>
+          <I18nextProvider>
+            <WixSDKProvider configure={configureWixStatic}>
+              <Settings />
+            </WixSDKProvider>
+          </I18nextProvider>
+        </ExperimentsProvider>
+      </BILoggerProvider>,
     );
 
     await waitForElement(() => screen.getByTestId('settings-tabs'));
