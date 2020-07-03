@@ -56,12 +56,6 @@ After you generate a project, a demo bi logger (`bi-logger-editor-flow-template`
 It's just for show case and it should be finally repaced with your one.  
 To configure own biLogger, please read the [fed-handbook BI section](https://github.com/wix-private/fed-handbook/blob/master/BI.md#overview).
 
-_Settings.ts_
-
-```tsx
-import { WixSDK, BILogger } from "yoshi-flow-editor-runtime";
-
-
 **Settings.tsx**
 ```tsx
 // Somewhere deep in the component
@@ -123,6 +117,26 @@ import { BILogger, BILoggerDefaults } from 'yoshi-flow-editor-runtime'
 ```
 
 > To update defaults in controller, you can just call `flowAPI.biLogger.util.updateDefaults({})`.
+
+### Testing
+For unit testing bi logger events you should wrap your component in tests in `BILoggerProvider` HOC imported from `yoshi-flow-editor-runtime/test`.
+
+It accepts `logger` property which can be a plain object with bi methods you want to mock.
+
+_Widget.spec.tsx_
+```tsx
+import { BILoggerProvider } from 'yoshi-flow-editor-runtime/test';
+
+it('should send a BI event on button click', async () => {
+  const buttonClickedBIEvent = jest.fn();
+  const { getByTestId } = render(
+    <BILoggerProvider logger={{ onButtonClicked: buttonClickedBIEvent }}>
+      <Widget />
+    </BILoggerProvider>
+  );
+  expect(buttonClickedBIEvent).toHaveBeenCalled();
+});
+```
 
 ## `translate`
 It's a HOC from `react-i18next` that allows using translations for `Widget` and `Settings` components.
