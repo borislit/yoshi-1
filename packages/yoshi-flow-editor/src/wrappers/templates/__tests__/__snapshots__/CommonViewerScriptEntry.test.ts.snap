@@ -53,6 +53,7 @@ exports[`CommonViewerScriptEntry template generates correct template with a sing
           biConfig: {},
           controllerFileName: \\"project/src/components/button/controller.ts\\",
           appName: \\"someapp\\",
+          projectName: \\"someProject\\",
           componentName: \\"SomeWidget\\",
           id: \\"CONTROLLER_ID\\" }]);
 "
@@ -86,6 +87,7 @@ exports[`CommonViewerScriptEntry template generates correct template with a sing
           biConfig: {},
           controllerFileName: \\"project/src/components/button/controller.ts\\",
           appName: \\"someApp\\",
+          projectName: \\"someProject\\",
           componentName: \\"SomeComp\\",
           id: \\"123\\" }]);
 "
@@ -121,6 +123,7 @@ import controller1 from 'project/src/components/todo/controller.ts';
           biConfig: {\\"visitor\\":\\"visitor-bi-package\\",\\"owner\\":\\"owner-bi-package\\"},
           controllerFileName: \\"project/src/components/todo/controller.ts\\",
           appName: \\"someapp\\",
+          projectName: \\"someProject\\",
           componentName: \\"SomeWidget\\",
           id: \\"CONTROLLER_ID\\" }, { method: controller1,
           widgetType: \\"STUDIO_WIDGET\\",
@@ -131,6 +134,7 @@ import controller1 from 'project/src/components/todo/controller.ts';
           biConfig: {\\"visitor\\":\\"visitor-bi-package\\",\\"owner\\":\\"owner-bi-package\\"},
           controllerFileName: \\"project/src/components/todo/controller.ts\\",
           appName: \\"someapp\\",
+          projectName: \\"someProject\\",
           componentName: \\"SomeWidget\\",
           id: \\"09876\\" }]);
 "
@@ -166,6 +170,7 @@ import controller1 from 'project/src/components/todo/controller.ts';
           biConfig: {\\"visitor\\":\\"visitor-bi-package\\",\\"owner\\":\\"owner-bi-package\\"},
           controllerFileName: \\"project/src/components/todo/controller.ts\\",
           appName: \\"someapp\\",
+          projectName: \\"someProject\\",
           componentName: \\"SomeWidget\\",
           id: \\"CONTROLLER_ID\\" }, { method: controller1,
           widgetType: \\"WIDGET_OUT_OF_IFRAME\\",
@@ -176,6 +181,7 @@ import controller1 from 'project/src/components/todo/controller.ts';
           biConfig: {\\"visitor\\":\\"visitor-bi-package\\",\\"owner\\":\\"owner-bi-package\\"},
           controllerFileName: \\"project/src/components/todo/controller.ts\\",
           appName: \\"someapp\\",
+          projectName: \\"someProject\\",
           componentName: \\"SomeWidget\\",
           id: \\"CONTROLLER_ID\\" }]);
 "
@@ -215,6 +221,7 @@ exports[`CommonViewerScriptEntry template generates correct template with sentry
           biConfig: {\\"visitor\\":\\"visitor-bi-package\\",\\"owner\\":\\"owner-bi-package\\"},
           controllerFileName: \\"project/src/components/button/controller.ts\\",
           appName: \\"someApp\\",
+          projectName: \\"someProject\\",
           componentName: \\"SomeWidget\\",
           id: \\"CONTROLLER_ID\\" }]);
 "
