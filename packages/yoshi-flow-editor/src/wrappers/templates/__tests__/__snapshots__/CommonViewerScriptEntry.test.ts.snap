@@ -24,6 +24,9 @@ exports[`CommonViewerScriptEntry template generates correct template w/o control
     sentry: sentryConfig,
     experimentsConfig: experimentsConfig,
     inEditor: false,
+    biLogger: biLogger,
+    projectName: \\"someProject\\",
+    biConfig: {\\"visitor\\":\\"visitor-bi-package\\",\\"owner\\":\\"owner-bi-package\\"},
     appName: \\"someApp\\",
     translationsConfig: translationsConfig,
   });
@@ -56,6 +59,9 @@ exports[`CommonViewerScriptEntry template generates correct template with a sing
     sentry: sentryConfig,
     experimentsConfig: experimentsConfig,
     inEditor: false,
+    biLogger: biLogger,
+    projectName: \\"someProject\\",
+    biConfig: {},
     appName: \\"someapp\\",
     translationsConfig: translationsConfig,
   });
@@ -98,6 +104,9 @@ exports[`CommonViewerScriptEntry template generates correct template with a sing
     sentry: sentryConfig,
     experimentsConfig: experimentsConfig,
     inEditor: false,
+    biLogger: biLogger,
+    projectName: \\"someProject\\",
+    biConfig: {},
     appName: \\"someApp\\",
     translationsConfig: translationsConfig,
   });
@@ -142,6 +151,9 @@ import controller1 from 'project/src/components/todo/controller.ts';
     sentry: sentryConfig,
     experimentsConfig: experimentsConfig,
     inEditor: false,
+    biLogger: biLogger,
+    projectName: \\"someProject\\",
+    biConfig: {\\"visitor\\":\\"visitor-bi-package\\",\\"owner\\":\\"owner-bi-package\\"},
     appName: \\"someapp\\",
     translationsConfig: translationsConfig,
   });
@@ -197,6 +209,9 @@ import controller1 from 'project/src/components/todo/controller.ts';
     sentry: sentryConfig,
     experimentsConfig: experimentsConfig,
     inEditor: false,
+    biLogger: biLogger,
+    projectName: \\"someProject\\",
+    biConfig: {\\"visitor\\":\\"visitor-bi-package\\",\\"owner\\":\\"owner-bi-package\\"},
     appName: \\"someapp\\",
     translationsConfig: translationsConfig,
   });
@@ -256,6 +271,9 @@ exports[`CommonViewerScriptEntry template generates correct template with sentry
     sentry: sentryConfig,
     experimentsConfig: experimentsConfig,
     inEditor: false,
+    biLogger: biLogger,
+    projectName: \\"someProject\\",
+    biConfig: {\\"visitor\\":\\"visitor-bi-package\\",\\"owner\\":\\"owner-bi-package\\"},
     appName: \\"someApp\\",
     translationsConfig: translationsConfig,
   });
