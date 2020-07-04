@@ -43,18 +43,16 @@ export default () => (
 ```
 
 ## `BILogger`
-It is a consumer. It will render a `children` function with `biLogger` passed to provider.
+Renders a `children` function with `biLogger` relevant for current environment.
 
-You can configure 2 different kinds of BI logger according to user's roles which events you want to log: owner and visitor.
-
-For both loggers you'll have the same `BILogger` HOCs, the only difference - it will pass a logger according to relevant environment.
+You can configure 2 different kind of BI logger according to user's roles: owner and visitor:
 
 - **Owner** will be available in `Settings` panel.
-- **Visitor** will be available in `Widget` and `controller`.
+- **Visitor** will be available in `Widget`, `controller` and `initAppForPage` in `viewer.app.ts`.
 
-After you generate a project, a demo bi logger (`bi-logger-editor-flow-template`) will be added to `.application.json` configuration.
-It's just for show case and it should be finally repaced with your one.  
-To configure own biLogger, please read the [fed-handbook BI section](https://github.com/wix-private/fed-handbook/blob/master/BI.md#overview).
+After you generate a project, a demo BI logger (`bi-logger-editor-flow-template`) will be added to `.application.json` configuration.
+It's a show case and should be finally repaced with user's BI logger schema. 
+To configure own BI logger, please read the [fed-handbook BI section](https://github.com/wix-private/fed-handbook/blob/master/BI.md#overview).
 
 **Settings.tsx**
 ```tsx
@@ -119,7 +117,7 @@ import { BILogger, BILoggerDefaults } from 'yoshi-flow-editor-runtime'
 > To update defaults in controller, you can just call `flowAPI.biLogger.util.updateDefaults({})`.
 
 ### Testing
-For unit testing bi logger events you should wrap your component in tests in `BILoggerProvider` HOC imported from `yoshi-flow-editor-runtime/test`.
+For unit testing components that contain a BI logger you should wrap it in `BILoggerProvider` HOC imported from `yoshi-flow-editor-runtime/test`.
 
 It accepts `logger` property which can be a plain object with bi methods you want to mock.
 
