@@ -24,7 +24,6 @@ import {
 } from './utils';
 import { WithProviders, ProvidersList } from './react/utils';
 import { BILoggerProvider } from './react/BILogger/BILoggerProvider';
-// import { BILoggerProvider } from './react/BILogger/BILoggerProvider';
 
 declare global {
   interface Window {
