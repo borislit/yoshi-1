@@ -51,7 +51,7 @@ You can configure 2 different kinds of BI logger according to user's roles: `own
 - **Visitor** will be available in `Widget`, `controller` and `initAppForPage` in `viewer.app.ts`.
 
 After you generate a project, a demo BI logger (`bi-logger-editor-flow-template`) will be added to `.application.json` configuration.
-It's a show case and should be finally repaced with user's BI logger schema. 
+It's a show case and should be finally repaced in `.application.json` and `package.json` with user's BI logger schema. 
 To configure own BI logger, please read the [fed-handbook BI section](https://github.com/wix-private/fed-handbook/blob/master/BI.md#overview).
 
 **Settings.tsx**
