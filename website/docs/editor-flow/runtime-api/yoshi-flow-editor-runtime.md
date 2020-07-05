@@ -92,7 +92,7 @@ const createController = async ({ flowAPI, controllerConfig }) => {
 ```
 
 ### `BILoggerDefaults`
-To update defaults for each events being called from the `BILogger` render prop, you can update the context by wrapping your root component, 
+To update defaults for each event being called from the `BILogger` render prop, you can update the context by wrapping your root component, 
 which contain consumers.
 
 ```Settings.tsx
