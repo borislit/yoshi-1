@@ -45,7 +45,7 @@ export default () => (
 ## `BILogger`
 Renders a `children` function with `biLogger` relevant for current environment.
 
-You can configure 2 different kind of BI logger according to user's roles: owner and visitor:
+You can configure 2 different kinds of BI logger according to user's roles: `owner` and `visitor`:
 
 - **Owner** will be available in `Settings` panel.
 - **Visitor** will be available in `Widget`, `controller` and `initAppForPage` in `viewer.app.ts`.
