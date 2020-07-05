@@ -77,7 +77,7 @@ const createController = async ({ flowAPI, controllerConfig }) => {
 
   onSomeAction = async () => {
     // Do something...
-    await flowAPI.biLogger?.somethigWasDone({});
+    await flowAPI.biLogger?.somethingWasDone({});
   };
 
   return {
