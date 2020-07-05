@@ -9,6 +9,7 @@
   "workspaces": [
     "packages/*"
   ],
+  "experimentalMonorepoPublish": true,
   "scripts": {
     "// local dev": "------------------------------------------------------------------------------------",
     "lint": "eslint . --ext js,ts --max-warnings 0",
