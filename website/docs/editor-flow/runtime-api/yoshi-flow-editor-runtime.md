@@ -56,7 +56,7 @@ To configure own BI logger, please read the [fed-handbook BI section](https://gi
 
 **Settings.tsx**
 ```tsx
-// Somewhere deep in the component
+// Somewhere deep in the component tree
 const ColorPicker = () => (
   <BILogger owner>
     {biLogger => (
