@@ -86,7 +86,6 @@ const getWidgetWrapper = (
       _translations,
       _enabledHOCs,
       _experiments,
-      // _biLogger,
       _mobile,
       onAppLoaded,
       ...widgetProps
