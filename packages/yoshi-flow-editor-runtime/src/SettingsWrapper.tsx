@@ -43,6 +43,7 @@ const getBiLoggerInstance = memoize(
     const logger = biSchema(factory)();
     const biOptions = {
       owner_id: Wix.Utils.getSiteOwnerId(),
+      origin: 'editor',
       appName,
       projectName,
     };

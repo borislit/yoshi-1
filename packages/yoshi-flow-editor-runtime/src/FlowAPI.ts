@@ -185,6 +185,7 @@ export class ViewerScriptFlowAPI extends FlowAPI {
       const biOptions = {
         visitor_id: platformBI.visitorId,
         token: platformBI.biToken,
+        origin: 'viewer',
         appName,
         projectName,
         _msid: platformBI.metaSiteId,
