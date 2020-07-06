@@ -25,7 +25,7 @@ import {
   EDITOR_APP_FILENAME,
   URLS_CONFIG,
 } from './constants';
-import { normalizeProjectName } from './utils';
+import { normalizeProjectName, normalizeBIConfig } from './utils';
 
 export interface FlowEditorModel {
   appName: string | null;
@@ -65,7 +65,7 @@ export interface AppConfig {
   appName?: string;
   translations?: TranslationsConfig | null;
   sentry?: SentryConfig;
-  bi?: BIConfig;
+  bi?: BIConfig | string;
 }
 export interface ComponentConfig {
   id: string;
@@ -276,7 +276,7 @@ For more info, visit http://tiny.cc/dev-center-registration`);
     sentry: (shouldUseSentry() && appConfig.sentry) || null,
     experimentsConfig: appConfig ? appConfig.experiments : null,
     appDefId: appConfig.appDefinitionId ?? null,
-    biConfig: appConfig.bi ?? null,
+    biConfig: normalizeBIConfig(appConfig.bi),
     translationsConfig,
     editorEntryFileName,
     artifactId,

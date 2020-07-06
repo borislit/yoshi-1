@@ -4,7 +4,10 @@ import resolveCwd from 'resolve-cwd';
 import urlJoin from 'url-join';
 import fs from 'fs-extra';
 import { BROWSER_LIB_URL } from '@wix/add-sentry/lib/constants';
-import { SentryConfig } from 'yoshi-flow-editor-runtime/build/constants';
+import {
+  SentryConfig,
+  BIConfig,
+} from 'yoshi-flow-editor-runtime/build/constants';
 import { FlowEditorModel, ComponentModel } from './model';
 
 export const joinDirs = (...dirs: Array<string>) =>
@@ -159,6 +162,18 @@ export const generateSentryScript = (sentry: SentryConfig) => {
 
 export const normalizeProjectName = (projectName: string) => {
   return projectName.replace('@wix/', '');
+};
+
+// Here we are converting bi shorthand to `visitor` + `owner` object for cases when user has the same package for all roles.
+export const normalizeBIConfig = (bi: BIConfig | null = null) => {
+  if (typeof bi === 'string') {
+    return {
+      owner: bi,
+      visitor: bi,
+    };
+  }
+
+  return bi ?? null;
 };
 
 export const getDefaultTranslations = (model: FlowEditorModel) => {

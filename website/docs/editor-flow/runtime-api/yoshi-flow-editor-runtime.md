@@ -114,7 +114,7 @@ import { BILogger, BILoggerDefaults } from 'yoshi-flow-editor-runtime'
 </BILoggerDefaults>
 ```
 
-> To update defaults in controller, you can just call `flowAPI.biLogger.util.updateDefaults({})`.
+> To update defaults in controller, you can just call `flowAPI.biLogger.util.updateDefaults(newDefaults)`.
 
 ### Testing
 For unit testing components that contain a BI logger you should wrap it in `BILoggerProvider` HOC imported from `yoshi-flow-editor-runtime/test`.
