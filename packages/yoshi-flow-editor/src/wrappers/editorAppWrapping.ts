@@ -1,8 +1,7 @@
 import path from 'path';
 import fs from 'fs-extra';
-import resolveCwd from 'resolve-cwd';
 import { FlowEditorModel, ComponentModel } from '../model';
-import { getDefaultTranslations } from '../utils';
+import { getDefaultTranslations, resolveBILoggerPath } from '../utils';
 import editorEntryTemplate from './templates/EditorAppEntryContent';
 
 const editorAppWrapperPath =
@@ -26,13 +25,10 @@ const componentWrapper = (
       let visitorBiLoggerPath: string | null = null;
 
       if (model.biConfig?.visitor) {
-        visitorBiLoggerPath = resolveCwd.silent(model.biConfig.visitor) || null;
-        if (!visitorBiLoggerPath) {
-          throw new Error(
-            `❌ Seems like you have \`bi.visitor\` specified, but didn't install it as a dependency.
-    Please add it your your project: \`npm install ${model.biConfig.visitor}\` or remove bi field from \`.application.json\``,
-          );
-        }
+        visitorBiLoggerPath = resolveBILoggerPath(
+          model.biConfig.visitor,
+          'visitor',
+        );
       }
 
       const generateWidgetEntryContent = editorEntryTemplate({

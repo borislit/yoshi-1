@@ -1,5 +1,6 @@
 import path from 'path';
 import { URL } from 'url';
+import resolveCwd from 'resolve-cwd';
 import urlJoin from 'url-join';
 import fs from 'fs-extra';
 import { BROWSER_LIB_URL } from '@wix/add-sentry/lib/constants';
@@ -168,4 +169,19 @@ export const getDefaultTranslations = (model: FlowEditorModel) => {
     );
   }
   return defaultTranslations;
+};
+
+export const resolveBILoggerPath = (
+  packageName: string,
+  type: string,
+  silent = false,
+) => {
+  const biLoggerPath = resolveCwd.silent(packageName) || null;
+  if (!silent && !biLoggerPath) {
+    throw new Error(
+      `❌ Seems like you have \`bi.${type}\` specified, but it wasn't installed as a dependency.
+Please add it your your project: \`npm install ${packageName}\` or remove \`bi\` field from \`.application.json\``,
+    );
+  }
+  return biLoggerPath;
 };
