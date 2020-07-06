@@ -3259,10 +3259,10 @@
     postcss-value-parser "^3.3.1"
     url-regex "^4.1.1"
 
-"@stylable/core@3.7.0", "@stylable/core@^3.7.0":
-  version "3.7.0"
-  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/@stylable/core/-/core-3.7.0.tgz#31a7853de17ccc879b7744b5df830ee86f8c32b7"
-  integrity sha1-MaeFPeF8zIebd0S134MO6G+MMrc=
+"@stylable/core@3.7.2", "@stylable/core@^3.7.2":
+  version "3.7.2"
+  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/@stylable/core/-/core-3.7.2.tgz#1d257651c454ef77a2adc4e402e5e06fbbc7449f"
+  integrity sha1-HSV2UcRU73eircTkAuXgb7vHRJ8=
   dependencies:
     css-selector-tokenizer "^0.7.2"
     deindent "^0.1.0"
@@ -3296,21 +3296,21 @@
     "@stylable/node" "^1.4.0"
     "@stylable/runtime" "^1.4.0"
 
-"@stylable/jest@3.7.0":
-  version "3.7.0"
-  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/@stylable/jest/-/jest-3.7.0.tgz#174223fa75c606268e4dec5edf631c840073c435"
-  integrity sha1-F0Ij+nXGBiaOTexe32MchABzxDU=
+"@stylable/jest@3.7.2":
+  version "3.7.2"
+  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/@stylable/jest/-/jest-3.7.2.tgz#7516fda8e9f90deb1950f4bffbdb279dc28a46ad"
+  integrity sha1-dRb9qOn5DesZUPS/+9snncKKRq0=
   dependencies:
-    "@stylable/core" "^3.7.0"
-    "@stylable/module-utils" "^3.7.0"
+    "@stylable/core" "^3.7.2"
+    "@stylable/module-utils" "^3.7.2"
     "@stylable/runtime" "^3.7.0"
 
-"@stylable/module-utils@3.7.0", "@stylable/module-utils@^3.7.0":
-  version "3.7.0"
-  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/@stylable/module-utils/-/module-utils-3.7.0.tgz#8195afbe76d3c142cd1e532cfae103d64a28a9ac"
-  integrity sha1-gZWvvnbTwULNHlMs+uED1kooqaw=
+"@stylable/module-utils@3.7.2", "@stylable/module-utils@^3.7.2":
+  version "3.7.2"
+  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/@stylable/module-utils/-/module-utils-3.7.2.tgz#b3129f2791f3b9d62c86d3c8c9428d8f903c0c3f"
+  integrity sha1-sxKfJ5HzudYshtPIyUKNj5A8DD8=
   dependencies:
-    "@stylable/core" "^3.7.0"
+    "@stylable/core" "^3.7.2"
 
 "@stylable/node@1.4.0", "@stylable/node@^1.4.0":
   version "1.4.0"
@@ -3321,21 +3321,21 @@
     find-config "^1.0.0"
     murmurhash "^0.0.2"
 
-"@stylable/node@3.7.0", "@stylable/node@^3.7.0":
-  version "3.7.0"
-  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/@stylable/node/-/node-3.7.0.tgz#87a5a5839c075d8338102b9ba70329f9de0585da"
-  integrity sha1-h6Wlg5wHXYM4ECubpwMp+d4Fhdo=
+"@stylable/node@3.7.2", "@stylable/node@^3.7.2":
+  version "3.7.2"
+  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/@stylable/node/-/node-3.7.2.tgz#f09be2fb60735cff4ad5082034fad87d493fff28"
+  integrity sha1-8Jvi+2BzXP9K1QggNPrYfUk//yg=
   dependencies:
-    "@stylable/core" "^3.7.0"
-    "@stylable/module-utils" "^3.7.0"
+    "@stylable/core" "^3.7.2"
+    "@stylable/module-utils" "^3.7.2"
     find-config "^1.0.0"
 
-"@stylable/optimizer@^3.7.0":
-  version "3.7.0"
-  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/@stylable/optimizer/-/optimizer-3.7.0.tgz#bd6cb3c04a3f451dba087270b36900942cc42513"
-  integrity sha1-vWyzwEo/RR26CHJws2kAlCzEJRM=
+"@stylable/optimizer@^3.7.2":
+  version "3.7.2"
+  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/@stylable/optimizer/-/optimizer-3.7.2.tgz#4c5d44231fc5438156a35d0a86413914419bc128"
+  integrity sha1-TF1EIx/FQ4FWo10KhkE5FEGbwSg=
   dependencies:
-    "@stylable/core" "^3.7.0"
+    "@stylable/core" "^3.7.2"
     csso "^4.0.3"
     postcss "^7.0.32"
 
@@ -3369,14 +3369,14 @@
     find-config "^1.0.0"
     webpack-sources "^1.3.0"
 
-"@stylable/webpack-plugin@3.7.0":
-  version "3.7.0"
-  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/@stylable/webpack-plugin/-/webpack-plugin-3.7.0.tgz#a11731c026146512742008e58266b3e62dfc36a3"
-  integrity sha1-oRcxwCYUZRJ0IAjlgmaz5i38NqM=
+"@stylable/webpack-plugin@3.7.2":
+  version "3.7.2"
+  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/@stylable/webpack-plugin/-/webpack-plugin-3.7.2.tgz#7b5d2bc580f3fc25a5d12187bbeb601848ed1b41"
+  integrity sha1-e10rxYDz/CWl0SGHu+tgGEjtG0E=
   dependencies:
-    "@stylable/module-utils" "^3.7.0"
-    "@stylable/node" "^3.7.0"
-    "@stylable/optimizer" "^3.7.0"
+    "@stylable/module-utils" "^3.7.2"
+    "@stylable/node" "^3.7.2"
+    "@stylable/optimizer" "^3.7.2"
     "@stylable/runtime" "^3.7.0"
     find-config "^1.0.0"
     webpack-sources "^1.4.3"
@@ -3902,11 +3902,6 @@
   version "4.14.156"
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/@types/lodash/-/lodash-4.14.156.tgz#cbe30909c89a1feeb7c60803e785344ea0ec82d1"
   integrity sha1-y+MJCciaH+63xggD54U0TqDsgtE=
-
-"@types/lodash@4.14.155":
-  version "4.14.155"
-  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/@types/lodash/-/lodash-4.14.155.tgz#e2b4514f46a261fd11542e47519c20ebce7bc23a"
-  integrity sha1-4rRRT0aiYf0RVC5HUZwg6857wjo=
 
 "@types/lodash@4.14.157":
   version "4.14.157"
@@ -7559,7 +7554,7 @@ array.prototype.flat@^1.2.1, array.prototype.flat@^1.2.3:
     define-properties "^1.1.3"
     es-abstract "^1.17.0-next.1"
 
-array.prototype.flatmap@^1.2.1:
+array.prototype.flatmap@^1.2.1, array.prototype.flatmap@^1.2.3:
   version "1.2.3"
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/array.prototype.flatmap/-/array.prototype.flatmap-1.2.3.tgz#1c13f84a178566042dd63de4414440db9222e443"
   integrity sha1-HBP4SheFZgQt1j3kQURA25Ii5EM=
@@ -7774,14 +7769,14 @@ atob@^2.1.2:
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha1-bZUX654DDSQ2ZmZR6GvZ9vE1M8k=
 
-autoprefixer@9.8.1:
-  version "9.8.1"
-  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/autoprefixer/-/autoprefixer-9.8.1.tgz#09ebdf209ddeb6900b310c71219f367138950ddd"
-  integrity sha1-CevfIJ3etpALMQxxIZ82cTiVDd0=
+autoprefixer@9.8.4:
+  version "9.8.4"
+  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/autoprefixer/-/autoprefixer-9.8.4.tgz#736f1012673a70fa3464671d78d41abd54512863"
+  integrity sha1-c28QEmc6cPo0ZGcdeNQavVRRKGM=
   dependencies:
     browserslist "^4.12.0"
-    caniuse-lite "^1.0.30001084"
-    kleur "^4.0.1"
+    caniuse-lite "^1.0.30001087"
+    colorette "^1.2.0"
     normalize-range "^0.1.2"
     num2fraction "^1.2.2"
     postcss "^7.0.32"
@@ -9525,6 +9520,11 @@ caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000929, caniuse-lite@^1.0.30000989, can
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/caniuse-lite/-/caniuse-lite-1.0.30001085.tgz#bed28bd51ff7425d33ee23e730c7f3b703711db6"
   integrity sha1-vtKL1R/3Ql0z7iPnMMfztwNxHbY=
 
+caniuse-lite@^1.0.30001087:
+  version "1.0.30001094"
+  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/caniuse-lite/-/caniuse-lite-1.0.30001094.tgz#0b11d02e1cdc201348dbd8e3e57bd9b6ce82b175"
+  integrity sha1-CxHQLhzcIBNI29jj5XvZts6CsXU=
+
 capture-exit@^2.0.0:
   version "2.0.0"
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/capture-exit/-/capture-exit-2.0.0.tgz#fb953bfaebeb781f62898239dabb426d08a509a4"
@@ -10068,6 +10068,11 @@ color@^3.0.0:
   dependencies:
     color-convert "^1.9.1"
     color-string "^1.5.2"
+
+colorette@^1.2.0:
+  version "1.2.1"
+  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/colorette/-/colorette-1.2.1.tgz#4d0b921325c14faf92633086a536db6e89564b1b"
+  integrity sha1-TQuSEyXBT6+SYzCGpTbbbolWSxs=
 
 colorful@2.1.0, colorful@~2.1.0:
   version "2.1.0"
@@ -12502,7 +12507,26 @@ eslint-module-utils@^2.6.0:
     debug "^2.6.9"
     pkg-dir "^2.0.0"
 
-eslint-plugin-import@2.21.2, eslint-plugin-import@^2.11.0:
+eslint-plugin-import@2.22.0:
+  version "2.22.0"
+  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/eslint-plugin-import/-/eslint-plugin-import-2.22.0.tgz#92f7736fe1fde3e2de77623c838dd992ff5ffb7e"
+  integrity sha1-kvdzb+H94+Led2I8g43Zkv9f+34=
+  dependencies:
+    array-includes "^3.1.1"
+    array.prototype.flat "^1.2.3"
+    contains-path "^0.1.0"
+    debug "^2.6.9"
+    doctrine "1.5.0"
+    eslint-import-resolver-node "^0.3.3"
+    eslint-module-utils "^2.6.0"
+    has "^1.0.3"
+    minimatch "^3.0.4"
+    object.values "^1.1.1"
+    read-pkg-up "^2.0.0"
+    resolve "^1.17.0"
+    tsconfig-paths "^3.9.0"
+
+eslint-plugin-import@^2.11.0:
   version "2.21.2"
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/eslint-plugin-import/-/eslint-plugin-import-2.21.2.tgz#8fef77475cc5510801bedc95f84b932f7f334a7c"
   integrity sha1-j+93R1zFUQgBvtyV+EuTL38zSnw=
@@ -12585,7 +12609,24 @@ eslint-plugin-react-hooks@^2.3.0:
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-2.5.1.tgz#4ef5930592588ce171abeb26f400c7fbcbc23cd0"
   integrity sha1-TvWTBZJYjOFxq+sm9ADH+8vCPNA=
 
-eslint-plugin-react@7.20.0, eslint-plugin-react@^7.11.1:
+eslint-plugin-react@7.20.3:
+  version "7.20.3"
+  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/eslint-plugin-react/-/eslint-plugin-react-7.20.3.tgz#0590525e7eb83890ce71f73c2cf836284ad8c2f1"
+  integrity sha1-BZBSXn64OJDOcfc8LPg2KErYwvE=
+  dependencies:
+    array-includes "^3.1.1"
+    array.prototype.flatmap "^1.2.3"
+    doctrine "^2.1.0"
+    has "^1.0.3"
+    jsx-ast-utils "^2.4.1"
+    object.entries "^1.1.2"
+    object.fromentries "^2.0.2"
+    object.values "^1.1.1"
+    prop-types "^15.7.2"
+    resolve "^1.17.0"
+    string.prototype.matchall "^4.0.2"
+
+eslint-plugin-react@^7.11.1:
   version "7.20.0"
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/eslint-plugin-react/-/eslint-plugin-react-7.20.0.tgz#f98712f0a5e57dfd3e5542ef0604b8739cd47be3"
   integrity sha1-+YcS8KXlff0+VULvBgS4c5zUe+M=
@@ -13798,10 +13839,10 @@ forwarded@~0.1.2:
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/forwarded/-/forwarded-0.1.2.tgz#98c23dab1175657b8c0573e8ceccd91b0ff18c84"
   integrity sha1-mMI9qxF1ZXuMBXPozszZGw/xjIQ=
 
-fp-ts@2.6.6:
-  version "2.6.6"
-  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/fp-ts/-/fp-ts-2.6.6.tgz#cfb57772a845628e56da05d8c5dc03227aedadb4"
-  integrity sha1-z7V3cqhFYo5W2gXYxdwDInrtrbQ=
+fp-ts@2.6.7:
+  version "2.6.7"
+  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/fp-ts/-/fp-ts-2.6.7.tgz#a86f904b86c93cd63300e6d40005e4caa57ccb6b"
+  integrity sha1-qG+QS4bJPNYzAObUAAXkyqV8y2s=
 
 fragment-cache@^0.2.1:
   version "0.2.1"
@@ -13832,13 +13873,6 @@ from@~0:
   version "0.1.7"
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/from/-/from-0.1.7.tgz#83c60afc58b9c56997007ed1a768b3ab303a44fe"
   integrity sha1-g8YK/Fi5xWmXAH7Rp2izqzA6RP4=
-
-front-matter@^3.0.1:
-  version "3.2.1"
-  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/front-matter/-/front-matter-3.2.1.tgz#88be839638f397bbbcb0d61ac03bd08abb4f0a40"
-  integrity sha1-iL6Dljjzl7u8sNYawDvQirtPCkA=
-  dependencies:
-    js-yaml "^3.13.1"
 
 fs-access@^1.0.0:
   version "1.0.1"
@@ -15907,10 +15941,10 @@ invert-kv@^2.0.0:
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/invert-kv/-/invert-kv-2.0.0.tgz#7393f5afa59ec9ff5f67a27620d11c226e3eec02"
   integrity sha1-c5P1r6Weyf9fZ6J2INEcIm4+7AI=
 
-io-ts@2.2.6:
-  version "2.2.6"
-  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/io-ts/-/io-ts-2.2.6.tgz#809305ef9af646c4edf79145671298835e321758"
-  integrity sha1-gJMF75r2RsTt95FFZxKYg14yF1g=
+io-ts@2.2.7:
+  version "2.2.7"
+  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/io-ts/-/io-ts-2.2.7.tgz#5c05477580bff4c0154b474316c8916253e87c44"
+  integrity sha1-XAVHdYC/9MAVS0dDFsiRYlPofEQ=
 
 ip-regex@^1.0.1:
   version "1.0.3"
@@ -18380,13 +18414,6 @@ lines-and-columns@^1.1.6:
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/lines-and-columns/-/lines-and-columns-1.1.6.tgz#1c00c743b433cd0a4e80758f7b64a57440d9ff00"
   integrity sha1-HADHQ7QzzQpOgHWPe2SldEDZ/wA=
 
-linkify-it@^2.0.0:
-  version "2.2.0"
-  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/linkify-it/-/linkify-it-2.2.0.tgz#e3b54697e78bf915c70a38acd78fd09e0058b1cf"
-  integrity sha1-47VGl+eL+RXHCjis14/QngBYsc8=
-  dependencies:
-    uc.micro "^1.0.1"
-
 lint-staged@^10.0.7:
   version "10.2.11"
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/lint-staged/-/lint-staged-10.2.11.tgz#713c80877f2dc8b609b05bc59020234e766c9720"
@@ -19259,17 +19286,6 @@ markdown-escapes@^1.0.0:
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/markdown-escapes/-/markdown-escapes-1.0.4.tgz#c95415ef451499d7602b91095f3c8e8975f78535"
   integrity sha1-yVQV70UUmddgK5EJXzyOiXX3hTU=
 
-markdown-it@^9.1.0:
-  version "9.1.0"
-  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/markdown-it/-/markdown-it-9.1.0.tgz#df9601c168568704d554b1fff9af0c5b561168d9"
-  integrity sha1-35YBwWhWhwTVVLH/+a8MW1YRaNk=
-  dependencies:
-    argparse "^1.0.7"
-    entities "~1.1.1"
-    linkify-it "^2.0.0"
-    mdurl "^1.0.1"
-    uc.micro "^1.0.5"
-
 markdown-table@^1.1.0:
   version "1.1.3"
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/markdown-table/-/markdown-table-1.1.3.tgz#9fcb69bcfdb8717bfd0398c6ec2d93036ef8de60"
@@ -19393,18 +19409,14 @@ mdn-data@2.0.6:
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/mdn-data/-/mdn-data-2.0.6.tgz#852dc60fcaa5daa2e8cf6c9189c440ed3e042978"
   integrity sha1-hS3GD8ql2qLoz2yRicRA7T4EKXg=
 
-mdsvex@0.6.1:
-  version "0.6.1"
-  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/mdsvex/-/mdsvex-0.6.1.tgz#b15332310649844ae0a89eb6244d08920d93911e"
-  integrity sha1-sVMyMQZJhErgqJ62JE0Ikg2TkR4=
+mdsvex@0.8.2:
+  version "0.8.2"
+  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/mdsvex/-/mdsvex-0.8.2.tgz#836a470db7c6d28453d29a0962747ab94e78667a"
+  integrity sha1-g2pHDbfG0oRT0poJYnR6uU54Zno=
   dependencies:
-    entities "^2.0.0"
-    front-matter "^3.0.1"
-    markdown-it "^9.1.0"
-    path-browserify "^1.0.0"
-    punycode "^2.1.1"
+    prismjs "^1.17.1"
 
-mdurl@^1.0.0, mdurl@^1.0.1:
+mdurl@^1.0.0:
   version "1.0.1"
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/mdurl/-/mdurl-1.0.1.tgz#fe85b2ec75a59037f2adfec100fd6c601761152e"
   integrity sha1-/oWy7HWlkDfyrf7BAP1sYBdhFS4=
@@ -20995,7 +21007,7 @@ object.assign@^4.0.4, object.assign@^4.1.0:
     has-symbols "^1.0.0"
     object-keys "^1.0.11"
 
-object.entries@^1.0.4, object.entries@^1.1.0, object.entries@^1.1.1:
+object.entries@^1.0.4, object.entries@^1.1.0, object.entries@^1.1.1, object.entries@^1.1.2:
   version "1.1.2"
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/object.entries/-/object.entries-1.1.2.tgz#bc73f00acb6b6bb16c203434b10f9a7e797d3add"
   integrity sha1-vHPwCstra7FsIDQ0sQ+afnl9Ot0=
@@ -21735,11 +21747,6 @@ path-browserify@0.0.1:
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/path-browserify/-/path-browserify-0.0.1.tgz#e6c4ddd7ed3aa27c68a20cc4e50e1a4ee83bbc4a"
   integrity sha1-5sTd1+06onxoogzE5Q4aTug7vEo=
 
-path-browserify@^1.0.0:
-  version "1.0.1"
-  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/path-browserify/-/path-browserify-1.0.1.tgz#d98454a9c3753d5790860f16f68867b9e46be1fd"
-  integrity sha1-2YRUqcN1PVeQhg8W9ohnueRr4f0=
-
 path-dirname@^1.0.0:
   version "1.0.2"
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/path-dirname/-/path-dirname-1.0.2.tgz#cc33d24d525e099a5388c0336c6e32b9160609e0"
@@ -21897,10 +21904,10 @@ performance-now@^2.1.0:
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
   integrity sha1-Ywn04OX6kT7BxpMHrjZLSzd8nns=
 
-petri-specs@1.3.285:
-  version "1.3.285"
-  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/petri-specs/-/petri-specs-1.3.285.tgz#87c2aee8d583aab0bd4fc0b45a2df1a2d3810de8"
-  integrity sha1-h8Ku6NWDqrC9T8C0Wi3xotOBDeg=
+petri-specs@1.3.286:
+  version "1.3.286"
+  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/petri-specs/-/petri-specs-1.3.286.tgz#f5422a19fbd705c9a8135bf5621ebf6f6aac6203"
+  integrity sha1-9UIqGfvXBcmoE1v1Yh6/b2qsYgM=
   dependencies:
     ab-translate "~1.1.0"
     ajv "^6.12.2"
@@ -22725,7 +22732,7 @@ pretty-time@^1.1.0:
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/pretty-time/-/pretty-time-1.1.0.tgz#ffb7429afabb8535c346a34e41873adf3d74dd0e"
   integrity sha1-/7dCmvq7hTXDRqNOQYc63z103Q4=
 
-prismjs@^1.8.4:
+prismjs@^1.17.1, prismjs@^1.8.4:
   version "1.20.0"
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/prismjs/-/prismjs-1.20.0.tgz#9b685fc480a3514ee7198eac6a3bf5024319ff03"
   integrity sha1-m2hfxICjUU7nGY6sajv1AkMZ/wM=
@@ -23490,13 +23497,13 @@ react-lifecycles-compat@^3.0.2, react-lifecycles-compat@^3.0.4:
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha1-TxonOv38jzSIqMUWv9p4+HI1I2I=
 
-react-module-container@1.0.2290:
-  version "1.0.2290"
-  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/react-module-container/-/react-module-container-1.0.2290.tgz#3a5911149492dd50953ce396a1b18936b8dee26e"
-  integrity sha1-OlkRFJSS3VCVPOOWobGJNrje4m4=
+react-module-container@1.0.2306:
+  version "1.0.2306"
+  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/react-module-container/-/react-module-container-1.0.2306.tgz#3b73515fbb506427b6fcb8fac15b4fa77599fb13"
+  integrity sha1-O3NRX7tQZCe2/Lj6wVtPp3WZ+xM=
   dependencies:
-    lodash "^4.17.4"
-    prop-types "^15.5.10"
+    lodash "^4.17.15"
+    prop-types "^15.7.2"
     react "^15.5.0"
     react-dom "^15.3.2"
 
@@ -27355,11 +27362,6 @@ type-detect@4.0.8, type-detect@^4.0.0, type-detect@^4.0.5:
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/type-detect/-/type-detect-4.0.8.tgz#7646fb5f18871cfbb7749e69bd39a6388eb7450c"
   integrity sha1-dkb7XxiHHPu3dJ5pvTmmOI63RQw=
 
-type-fest@0.15.1:
-  version "0.15.1"
-  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/type-fest/-/type-fest-0.15.1.tgz#d2c4e73d3e4a53cf1a906396dd460a1c5178ca00"
-  integrity sha1-0sTnPT5KU88akGOW3UYKHFF4ygA=
-
 type-fest@0.16.0, type-fest@^0.16.0:
   version "0.16.0"
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/type-fest/-/type-fest-0.16.0.tgz#3240b891a78b0deae910dbeb86553e552a148860"
@@ -27459,11 +27461,6 @@ ua-parser-js@^0.7.18:
   version "0.7.21"
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/ua-parser-js/-/ua-parser-js-0.7.21.tgz#853cf9ce93f642f67174273cc34565ae6f308777"
   integrity sha1-hTz5zpP2QvZxdCc8w0Vlrm8wh3c=
-
-uc.micro@^1.0.1, uc.micro@^1.0.5:
-  version "1.0.6"
-  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/uc.micro/-/uc.micro-1.0.6.tgz#9c411a802a409a91fc6cf74081baba34b24499ac"
-  integrity sha1-nEEagCpAmpH8bPdAgbq6NLJEmaw=
 
 uglify-js@3.4.x:
   version "3.4.10"
