@@ -2,6 +2,7 @@ const DEFAULT_ENV = 'development';
 const DEFAULT_MODULES = 'commonjs';
 const env = process.env.BABEL_ENV || process.env.NODE_ENV || DEFAULT_ENV;
 const disablePropTypeRemoval = process.env.DISABLE_REACT_PROP_TYPE_REMOVAL;
+const deprecatedLegacyDecoratorsSupported = process.env.DEPRECATED_LEGACY_DECORATORS === 'true';
 
 const requireDefault = (path) => {
   const required = require(path);
@@ -71,11 +72,7 @@ module.exports = function (api, opts = {}) {
       // Enable stage 2 decorators.
       [
         requireDefault('@babel/plugin-proposal-decorators'),
-        {
-          // Enable export after decorator syntax. It's also a part of the spec and tc39 is not made a decision about it.
-          // Read more https://github.com/tc39/proposal-decorators/issues/69
-          decoratorsBeforeExport: true,
-        },
+        deprecatedLegacyDecoratorsSupported ? { legacy: true } : { decoratorsBeforeExport: true }
       ],
       [
         // Allow the usage of class properties.
@@ -104,24 +101,24 @@ module.exports = function (api, opts = {}) {
       // Current Node and new browsers (in development environment) already implement it so
       // just add the syntax of Object { ...rest, ...spread }
       (isDevelopment || isTest) &&
-        requireDefault('@babel/plugin-syntax-object-rest-spread'),
+      requireDefault('@babel/plugin-syntax-object-rest-spread'),
 
       ...(!isProduction
         ? []
         : [
-            // Transform Object { ...rest, ...spread } to support old browsers
-            requireDefault('@babel/plugin-proposal-object-rest-spread'),
-            !options.ignoreReact &&
-              !disablePropTypeRemoval && [
-                // Remove PropTypes on react projects.
-                requireDefault(
-                  'babel-plugin-transform-react-remove-prop-types',
-                ),
-                {
-                  removeImport: true,
-                },
-              ],
-          ]),
+          // Transform Object { ...rest, ...spread } to support old browsers
+          requireDefault('@babel/plugin-proposal-object-rest-spread'),
+          !options.ignoreReact &&
+          !disablePropTypeRemoval && [
+            // Remove PropTypes on react projects.
+            requireDefault(
+              'babel-plugin-transform-react-remove-prop-types',
+            ),
+            {
+              removeImport: true,
+            },
+          ],
+        ]),
     ].filter(Boolean),
   };
 };
